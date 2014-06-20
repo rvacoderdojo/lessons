@@ -1,5 +1,4 @@
 ## Balloon Clapper
-=======
 
 This project is a very basic introduction to Greenfoot.  
 
