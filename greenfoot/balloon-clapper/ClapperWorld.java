@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ClapperWorld here.
+ * This is the "world" that the balloon app lives in. 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Macon Pegram
+ * @version 06/19/2014
  */
 public class ClapperWorld extends World
 {
