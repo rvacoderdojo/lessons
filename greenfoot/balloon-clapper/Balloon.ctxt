@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Balloon()
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\n\ Act\ -\ do\ whatever\ the\ Balloon\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment2.params=
+comment2.target=void\ bounceUp()
+comment2.text=\n\ Reset\ gravity\ and\ make\ sure\ the\ balloon\ doesn't\ get\ stuck\ to\ the\ bottom.\n
+comment3.params=loudness
+comment3.target=void\ adjustGravity(int)
+comment3.text=\n\ Based\ on\ the\ loudness\ level\ adjust\ gravity.\n\ If\ no\ sound\ is\ present\ the\ gravity\ increases.\n\ If\ there\ is\ noise,\ decrease\ gravity\ a\ little\ bit\ proportional\ to\ how\ loud\ the\ noise\ is.\n
+comment4.params=
+comment4.target=void\ pop()
+comment4.text=\n\ Pop\ this\ balloon.\n
+numComments=5
