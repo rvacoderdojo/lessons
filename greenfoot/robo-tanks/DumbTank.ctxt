@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ dodge()
+comment1.params=
+comment1.target=void\ target()
+comment2.params=
+comment2.target=Ammunition\ getAmmo()
+comment3.params=
+comment3.target=boolean\ shouldFire()
+numComments=4
