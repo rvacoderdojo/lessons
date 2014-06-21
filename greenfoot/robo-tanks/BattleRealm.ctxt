@@ -1,7 +1,10 @@
 #BlueJ class context
 comment0.params=
 comment0.target=BattleRealm()
-comment0.text=\n\ Constructor\ for\ objects\ of\ class\ BattleRealm.\n\ \n
-comment1.params=
-comment1.target=void\ act()
-numComments=2
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ BattleRealm.\r\n\ \r\n
+comment1.params=actor
+comment1.target=void\ randomPositionActor(greenfoot.Actor)
+comment1.text=\r\n\ Finds\ a\ random\ x/y\ position\ for\ an\ actor\r\n
+comment2.params=
+comment2.target=void\ act()
+numComments=3

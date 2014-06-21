@@ -26,15 +26,14 @@ public class Ammunition extends Actor
         BattleTankBase deadTank = (BattleTankBase)this.getOneIntersectingObject(BattleTankBase.class);
         if (deadTank != null) {
             deadTank.goKaboom();
-            // remove ammunition
-        }
-        int x = getX();
-        int y = getY();
-        if (x >= getWorld().getWidth() - 1 
-            || x <= 0 || y <= 0 
-            || y >= getWorld().getHeight() - 1)
             getWorld().removeObject(this);
-
+        }
+        else {
+            // See if we're close to the edge.
+            if(getX() < 20 || getX() > getWorld().getWidth() - 20 
+               || getY() < 20 || getY() > getWorld().getHeight() - 20)
+                getWorld().removeObject(this);
+        }
     }
     
 }

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.params=
-comment0.target=DumbTank()
+comment0.target=StationaryTank()
 comment1.params=
 comment1.target=void\ dodge()
 comment2.params=
