@@ -1,13 +1,13 @@
 #BlueJ class context
 comment0.params=
 comment0.target=ClapperWorld()
-comment0.text=\n\ Constructor\ for\ objects\ of\ class\ ClapperWorld.\n\ \n
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ ClapperWorld.\r\n\ \r\n
 comment1.params=
 comment1.target=void\ act()
 comment2.params=
 comment2.target=void\ updateLoudnessMeter()
-comment2.text=\n\ Reads\ how\ loud\ things\ are\ using\ the\ computer's\ mic\ \n\ and\ updates\ the\ Loudness\ meter\ on\ the\ screen.\n
+comment2.text=\r\n\ Reads\ how\ loud\ things\ are\ using\ the\ computer's\ mic\ \r\n\ and\ updates\ the\ Loudness\ meter\ on\ the\ screen.\r\n
 comment3.params=
 comment3.target=void\ addBalloon()
-comment3.text=\n\ Adds\ a\ balloon\ wherever\ the\ mouse\ is\ currently.\n
+comment3.text=\r\n\ Adds\ a\ balloon\ wherever\ the\ mouse\ is\ currently.\r\n
 numComments=4

@@ -1,10 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class DumbTank here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * This tank doesn't have a very intelligent strategy.
+ * It moves the same speed all the time and randomly turns.
+ * It fires every 10th call to act.
  */
 public class DumbTank extends BattleTankBase
 {
@@ -20,7 +19,7 @@ public class DumbTank extends BattleTankBase
     
     // Targetting is totally random.  Somewhere between -30 to 30 degrees rotation.
     protected  void target() {
-        int turnValue = (int)(30.0 - (Math.random() * 60.0));
+        int turnValue = 30 - Greenfoot.getRandomNumber(60);
         turn (turnValue);
     }
     

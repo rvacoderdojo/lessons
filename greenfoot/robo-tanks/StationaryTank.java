@@ -1,10 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class StationaryTank here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * This tank just sits there and fires straight ahead
  */
 public class StationaryTank extends BattleTankBase
 {
@@ -24,7 +21,7 @@ public class StationaryTank extends BattleTankBase
         return new Ammunition(15, "red-bullet.png");
     }
     
-    // Fires every 5th time act gets called. 
+    // Fires every 5th time the act method gets called. 
     protected boolean shouldFire() { 
         if (getCounter() % 5 == 0) {
             return true;

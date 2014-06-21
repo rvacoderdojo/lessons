@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ChargingTank here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Turns gradually in circles looking for other tanks.
+ * If it finds a tank it turns towards that tank and charges like a bull.
+ * It doesn't carry ammo and doesn't shoot.
+ * Think incredible Hulk... "HULK SMASH!"
  */
 public class ChargingTank extends BattleTankBase
 {
@@ -54,10 +54,11 @@ public class ChargingTank extends BattleTankBase
        
         // If there's no tank acquired, just randomly rotate to point in a new direction.
         if (currentTarget == null)  {
-            int turnDirection = (int)((Math.random() * 10.0)  );           
+            int turnDirection = Greenfoot.getRandomNumber(10);
             turn(turnDirection);
         }
         else {
+            // Turn towards the targetted tank.
             turnTowards(currentTarget.getX(), currentTarget.getX());
         }
     }

@@ -1,23 +1,23 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Ammunition here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Ammunition can be assigned a unique image and speed.
  */
 public class Ammunition extends Actor
 {
     private int velocity;
     
+    // Create the ammo with a unique image and speed for the bullet.
     public Ammunition(int velocity, String imageName) {
         setImage(imageName);
         this.velocity = velocity;
     }
     
     /**
-     * Act - do whatever the Ammunition wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Moves the ammo at the defined velocity.
+     * Checks to see if:
+     * - We hit a tank... If so call goKaboom() on the tank to blow it up and remove the ammo
+     * - If we are near the edge, remove the ammo.
      */
     public void act() 
     {

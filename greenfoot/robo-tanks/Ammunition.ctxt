@@ -3,5 +3,5 @@ comment0.params=velocity\ imageName
 comment0.target=Ammunition(int,\ java.lang.String)
 comment1.params=
 comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Ammunition\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment1.text=\r\n\ Moves\ the\ ammo\ at\ the\ defined\ velocity.\r\n\ Checks\ to\ see\ if\:\r\n\ -\ We\ hit\ a\ tank...\ If\ so\ call\ goKaboom()\ on\ the\ tank\ to\ blow\ it\ up\ and\ remove\ the\ ammo\r\n\ -\ If\ we\ are\ near\ the\ edge,\ remove\ the\ ammo.\r\n
 numComments=2

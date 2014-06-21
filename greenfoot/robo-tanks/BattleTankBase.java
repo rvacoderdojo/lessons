@@ -2,40 +2,63 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.List;
 
 /**
- * Write a description of class BattleTankBase here.
+ * This is the basic definition of a battle tank.  
+ * 
+ * All the common things a tank can do are defined here.  These include:
+ * - Basic action: target, dodge, and fire if necessary.
+ * - fire: fires the weapon
+ * - goKaboom: blows up the tank.
+ * - Other helper methods like: findClosestTank, calculateDistance, and atWorldsEdge 
+ *      - These helper methods are inherited by each of our special tanks.
+ *      
+ * "Abstract" methods like "dodge", "target", "getAmmo" and "shouldFire" are what makes each tank sub-class
+ * unique and special.  Declaring a method "abstract" means that one of the sub-classes must implement it.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
 public abstract class BattleTankBase extends Actor
 {
+    // The counter is used to help us understand how many steps a tank has taken.
     private int counter;
+    // This is the tank's celebration message if it wins.
     private String comment;
     
+    // Create the basic tank and set our counter to 0.
     public BattleTankBase() {
         counter = 0;
     }
     
+    // All of these abstract method need to be created by Tank subclasses. 
+    // They let the tank have it's own strategy for dodging, targetting, and what it's weapons look like and do
     protected abstract void dodge();
     protected abstract void target();
     protected abstract Ammunition getAmmo();
     protected abstract boolean shouldFire();
         
     /**
-     * Act - do whatever the BattleTankBase wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * All tanks go through the same basic loop
+     * - Increment the counter
+     * - Dodge (move)
+     * - Target and see
+     * - Make sure we're not at the edge of the world... if so turn 180 degrees around.
+     * - See if it's time to fire.  If so fire our weapon.
+     * - See if we ran in to another tank.
      */
     public void act() 
     {
         counter++;
+        // If counter is as large as it can get, reset it to 0.
         if (counter == Integer.MAX_VALUE) 
             resetCounter();
-        target();
         dodge();
-                
+        
+        target();
+        
         if (atWorldEdge()) {
             turn(180);
         }
+        
         if (shouldFire()) 
             fire();
             
@@ -43,25 +66,30 @@ public abstract class BattleTankBase extends Actor
         handleCollision();            
     }        
 
+    /**
+     * When it's time to fire, we get a new piece of ammunition, rotate it the same direction we're facing
+     * add it to the world, and start it running.
+     */
     public void fire() {
+        // Retrieve the tank's ammo.
         Ammunition ammo = getAmmo();
+        // Point the ammo in the direction the tank is facing.
         ammo.setRotation(getRotation());
+        // Put the ammo in the world.
         getWorld().addObject(ammo, this.getX(), this.getY());
+        
+        // move the ammo a little ways away from the tank so we don't shoot ourselves.
         ammo.move(this.getImage().getWidth() / 2 + 10);
     }
 
+    /**
+     * This handles blowing up the tank.
+     * The tank gets replaced by an Explosion actor.
+     */
     public void goKaboom() {
         Explosion explosion = new Explosion();
         getWorld().addObject(explosion, getX(), getY());
         getWorld().removeObject(this);
-    }
-    
-    protected void resetCounter() {
-        counter =0;
-    }
-    
-    protected int getCounter() {
-        return counter;
     }
     
     /**
@@ -77,6 +105,9 @@ public abstract class BattleTankBase extends Actor
             return false;
     }
     
+    /**
+     * See if this tank has collided with another tank.  If so explode!
+     */
     private void handleCollision() {
         List<BattleTankBase> tanks = getIntersectingObjects(BattleTankBase.class);
         if (tanks != null && tanks.size() > 0)  {
@@ -87,6 +118,10 @@ public abstract class BattleTankBase extends Actor
         }
     }
     
+    /**
+     * Find another tank, other than ourselves, that is nearby.  If we find several return the one
+     * that is closest to us.
+     */
     protected BattleTankBase findClosestTank() {
         List<BattleTankBase> tanks = getWorld().getObjects(BattleTankBase.class);
         BattleTankBase closestTank = null;
@@ -108,6 +143,14 @@ public abstract class BattleTankBase extends Actor
         return closestTank;
     }
     
+    /**
+     * Don't get lost in the math here, but this is the Pythagorean (the square of the hypotenuse 
+     * is equal to the sum of the squares of the two sides).  We take the Square Root at the end to
+     * convert from length squared to just length.
+     *
+     * It can be used to figure out the distance
+     * between 2 points.
+     */
     protected double calculateDistance(Actor actor1, Actor actor2) {
         double x1 = actor1.getX();
         double x2 = actor2.getX();
@@ -127,15 +170,13 @@ public abstract class BattleTankBase extends Actor
     public String getComment() {
         return comment;
     }
-    
-    public String toString() {
-        return this.getClass().getName() + " " + getComment();
+            
+    protected void resetCounter() {
+        counter =0;
     }
     
-    public void turnTowards (int x, int y) {
-        double xDif = x - getX(); 
-        double yDif = y - getY();
-        double a = Math.atan2(yDif, xDif);
-        setRotation((int) Math.toDegrees(a));
+    protected int getCounter() {
+        return counter;
     }
+    
 }
