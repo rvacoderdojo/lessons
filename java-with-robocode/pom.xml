@@ -7,7 +7,6 @@
     <groupId>org.rvacoderdojo</groupId>
     <artifactId>java-with-robocode</artifactId>
     <version>1.0-SNAPSHOT</version>
-
     <dependencies>
         <dependency>
             <groupId>net.sf.robocode</groupId>
