@@ -32,3 +32,6 @@ out/
 
 target/
 
+# NodeJS cruft
+node_modules/
+
