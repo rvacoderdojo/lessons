@@ -1,0 +1,14 @@
+{
+  "name": "robomgr",
+  "version": "0.0.0",
+  "description" : "A file upload utility to help support uploading of bots into the robocode common classpath"
+  "author" : "Macon Pegram ... RVA Coder Dojo",
+  "private": true,
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/rvacoderdojo/lessons/robocode/robomgr"
+  },
+  "dependencies": {
+    "hapi" : ">=8.4.x"
+  }
+}
