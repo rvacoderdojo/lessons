@@ -17,21 +17,21 @@
     </style>
     <script src="/js/dropzone.js"></script>
     <script>
-        Dropzone.autoDiscover = false;
+//        Dropzone.autoDiscover = false;
     </script>
 </head>
 <body>
     Hello World!
-    <form action="/upload" >
+    <form action="/upload"  class="dropzone">
         <label for="package">Package: </label><input type="text" id="package" name="package" /><br/>
         <!-- Support if browser can't handle dropzone -->
-        <div id="myDropzone" class="dropzone">
+        <div id="myDropzone">
             <div class="fallback">
                 <input name="file" type="file" multiple />
             </div>
         </div>
     </form>
     <script>
-        var myDropzone = new Dropzone('div#myDropzone', {'url' : '/upload'});
+//        var myDropzone = new Dropzone('div#myDropzone', {'url' : '/upload'});
     </script>
 </body>

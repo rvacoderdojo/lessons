@@ -29,6 +29,7 @@ server.route({
 
         handler: function (request, reply) {
             var data = request.payload;
+            console.log(data);
             if (data.file) {
                 var name = data.file.hapi.filename;
                 var path = __dirname + "/landingzone/" + name;
