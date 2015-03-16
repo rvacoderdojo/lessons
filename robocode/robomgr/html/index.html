@@ -7,18 +7,7 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/css/dropzone.css">
-    <style type="text/css">
-        #myDropzone {
-            width: 80%;
-            height: 300px;
-            border: solid 1px;
-        }
-
-    </style>
     <script src="/js/dropzone.js"></script>
-    <script>
-//        Dropzone.autoDiscover = false;
-    </script>
 </head>
 <body>
 <form id="my-awesome-dropzone" class="dropzone" action="/upload"  >
@@ -37,6 +26,7 @@
         uploadMultiple: true,
         parallelUploads: 100,
         maxFiles: 100,
+        maxFilesize: 100,
 
         // The setting up of the dropzone
         init: function() {

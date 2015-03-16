@@ -2,7 +2,15 @@ var fs = require('fs');
 var Hapi = require('hapi');
 
 var server = new Hapi.Server();
-server.connection({ port : 6160 });  // Why 6160?  GI/GO
+
+server.connection({
+    port : 6160, // Why 6160?  GI/GO
+    routes : {
+        payload: {
+            maxBytes: 209715200 // 200 MB
+        }
+    }
+});
 
 // Define a static route for content
 server.route({
@@ -29,7 +37,6 @@ server.route({
 
         handler: function (request, reply) {
             var data = request.payload;
-            console.log(data);
             if (data.file) {
                 var name = data.file.hapi.filename;
                 var path = __dirname + "/landingzone/" + name;
