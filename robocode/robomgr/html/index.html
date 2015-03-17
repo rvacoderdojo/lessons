@@ -7,16 +7,21 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/css/dropzone.css">
+    <link rel="stylesheet" href="/css/override.css">
     <script src="/js/dropzone.js"></script>
 </head>
 <body>
 <form id="my-awesome-dropzone" class="dropzone" action="/upload"  >
-    <div class="dropzone-previews"></div> <!-- this is were the previews should be shown. -->
-
     <!-- Now setup your input fields -->
-    <label for="package">Package name: </label><input type="text" name="package" id="package"/>
-
+    <div class="otherfields">
+    <label for="package">Package name: </label> <input type="text" name="package" id="package"/>
     <button type="submit">Submit data and files!</button>
+    </div>
+
+    <div id="dropzone-thumbs" class="dropzone-previews">
+        <div class="dz-message">Drop files here to upload</div>
+    </div> <!-- this is were the previews should be shown. -->
+
 </form>
 <script>
     Dropzone.options.myAwesomeDropzone = { // The camelized version of the ID of the form element
@@ -27,6 +32,7 @@
         parallelUploads: 100,
         maxFiles: 100,
         maxFilesize: 100,
+        previewsContainer: '#dropzone-thumbs',
 
         // The setting up of the dropzone
         init: function() {
