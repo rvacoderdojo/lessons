@@ -1,5 +1,6 @@
 var fs = require('fs');
 var config = require('./config.js');
+var BotInstaller = require('./bot-installer');
 
 var handler = function (request, reply) {
     var data = request.payload;
@@ -20,6 +21,8 @@ var handler = function (request, reply) {
                 filename: data.file.hapi.filename,
                 headers: data.file.hapi.headers
             };
+            new BotInstaller(path, config.classesFolder);
+
             reply(JSON.stringify(ret));
         })
     }
