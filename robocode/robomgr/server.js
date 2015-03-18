@@ -1,5 +1,6 @@
 var fs = require('fs');
 var Hapi = require('hapi');
+var config = require('./config.js');
 
 var server = new Hapi.Server();
 
@@ -34,8 +35,9 @@ server.route({
         handler: function (request, reply) {
             var data = request.payload;
             if (data.file) {
+                console.log("-- Receiving: " + data.file.hapi.filename);
                 var name = data.file.hapi.filename;
-                var path = __dirname + "/landingzone/" + name;
+                var path = config.scratchFolder + "/" + name;
                 var file = fs.createWriteStream(path);
 
                 file.on('error', function (err) {
@@ -59,4 +61,5 @@ server.route({
 
 server.start(function () {
     console.log('[info]', 'Server running at: ' + server.info.uri);
+    console.log('[info]', 'Configuration: ', config);
 });
