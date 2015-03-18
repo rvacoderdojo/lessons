@@ -5,7 +5,7 @@ Robocode bots and move them into the Robocode application's classpath.
 
 ## Pre-conditions:
 * [NodeJS](https://nodejs.org/) or [IO.js](https://iojs.org/)
-* Java (but you already have that if you're running Robocode)
+* Java with "javap" in the OS path (but you already have that if you're running Robocode)
 * Configuration changes to the "config.js" (see below)
 
 ## Installation and setup
@@ -21,5 +21,10 @@ Robocode bots and move them into the Robocode application's classpath.
 ## Usage
 Access the main page at: `http://{hostname}:{listenPort}`
 
-Upload your Robot classes.
+Upload your Robot classes by dragging and dropping them into the "hot zone" on the page, and clicking the "Teleport your bot!" button.
+
+## Credit
+* [HapiJS](http://hapijs.com) There is simply no better way to make HTTP services in Javascript.
+* [Dropzone](http://www.dropzonejs.com/) made this all very easy.  Much thanks to Matias Meno
+* [java-class-parser](https://github.com/villadora/java-class-parser) For parsing the compiled .class files to extract package info.
 
