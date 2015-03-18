@@ -11,20 +11,24 @@
     <script src="/js/dropzone.js"></script>
 </head>
 <body>
-<form id="my-awesome-dropzone" class="dropzone" action="/upload"  >
-    <!-- Now setup your input fields -->
-    <div class="otherfields">
-    <label for="package">Package name: </label> <input type="text" name="package" id="package"/>
-    <button type="submit">Submit data and files!</button>
+<form id="botDropzone" class="dropzone" action="/upload">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div id="dropzone-thumbs" class="dropzone-previews col-md-10">
+            <div class="dz-message">Drop files here to upload</div>
+        </div>
+        <div class="col-md-1"></div>
     </div>
-
-    <div id="dropzone-thumbs" class="dropzone-previews">
-        <div class="dz-message">Drop files here to upload</div>
-    </div> <!-- this is were the previews should be shown. -->
-
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-success btn-lg center-block">Teleport your bot!</button>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
 </form>
 <script>
-    Dropzone.options.myAwesomeDropzone = { // The camelized version of the ID of the form element
+    Dropzone.options.botDropzone = { // The camelized version of the ID of the form element
 
         // The configuration we've talked about above
         autoProcessQueue: false,
@@ -46,20 +50,12 @@
                 myDropzone.processQueue();
             });
 
-            // Listen to the sendingmultiple event. In this case, it's the sendingmultiple event instead
-            // of the sending event because uploadMultiple is set to true.
-            this.on("sendingmultiple", function() {
-                // Gets triggered when the form is actually being sent.
-                // Hide the success button or the complete form.
+            // Override the thumbnail with a Robocode image.
+            this.on("addedfile", function(file) {
+                myDropzone.emit("thumbnail", file, "/images/tank-thumbnail.png");
+                console.log('Rendering thumbnail');
             });
-            this.on("successmultiple", function(files, response) {
-                // Gets triggered when the files have successfully been sent.
-                // Redirect user or notify of success.
-            });
-            this.on("errormultiple", function(files, response) {
-                // Gets triggered when there was an error sending the files.
-                // Maybe show form again, and notify user of error
-            });
+
         }
 
     }
