@@ -1,0 +1,20 @@
+.dropzone {
+    border: 0px;
+}
+
+.dz-message {
+    font-weight: bold;
+}
+.dropzone-previews {
+    margin: 20px auto;
+    min-height: 250px;
+    border: dashed 3px  #0087F7;
+    background: #e0e0e0 url("/images/rvacoderdojo-logo.png") no-repeat center center;
+    background-size: 10%;
+}
+
+.dropzone-previews:hover {
+    background: #d0d0d0 url("/images/rvacoderdojo-logo-hover.png") no-repeat center center;
+    background-size: 10%;
+}
+
