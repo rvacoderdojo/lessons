@@ -11,6 +11,7 @@
 </head>
 <body>
 <form id="botDropzone" class="dropzone" action="/upload">
+<div class="container">
     <div class="row">
         <div class="col-md-1"></div>
         <div id="dropzone-thumbs" class="dropzone-previews col-md-10">
@@ -20,11 +21,15 @@
     </div>
     <div class="row">
         <div class="col-md-4"></div>
-        <div class="col-md-4">
+        <div class="col-md-2">
             <button type="submit" class="btn btn-success btn-lg center-block">Teleport your bot!</button>
+        </div>
+        <div class="col-md-2">
+            <button type="reset" class="btn btn-danger btn-lg  center-block">Reset Dropzone</button>
         </div>
         <div class="col-md-4"></div>
     </div>
+</div>
 </form>
 <script src="/js/dropzone.js"></script>
 <script src="/js/robomgr-dropzone.js"></script>

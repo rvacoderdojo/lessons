@@ -18,10 +18,13 @@ Dropzone.options.botDropzone = { // The camelized version of the ID of the form 
             myDropzone.processQueue();
         });
 
+        this.element.querySelector("button[type=reset]").addEventListener("click", function(e){
+           myDropzone.removeAllFiles();
+        });
+
         // Override the thumbnail with a Robocode image.
         this.on("addedfile", function(file) {
             myDropzone.emit("thumbnail", file, "/images/tank-thumbnail.png");
-            console.log('Rendering thumbnail');
         });
 
         // If the user dropped multiple files before hitting submit,
@@ -32,6 +35,14 @@ Dropzone.options.botDropzone = { // The camelized version of the ID of the form 
             }
         });
 
+        // Tidy up a successful upload
+        this.on("success", function(file){
+            // Remove the file from the display 1.25 secs after completion.
+            setInterval(function() {
+                myDropzone.removeFile(file);
+            }, 1250);
+
+        })
     }
 
 }
