@@ -4,8 +4,6 @@ var fs = require('fs');
 
 var BotInstaller = function(classfile, basePath) {
 
-    var self = this;
-
     // Parse the java .Class file, and move it into the Robocode base classpath.
     parser([classfile], function(err, rs) {
 
