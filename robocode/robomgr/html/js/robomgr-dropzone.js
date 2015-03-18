@@ -1,14 +1,12 @@
 Dropzone.options.botDropzone = { // The camelized version of the ID of the form element
 
-    // The configuration we've talked about above
-    autoProcessQueue: false,
-    uploadMultiple: false,
-    parallelUploads: 1,
-    maxFiles: 100,
-    maxFilesize: 100,
-    previewsContainer: '#dropzone-thumbs',
+    autoProcessQueue: false,  // Don't start until the user hits the submit button
+    uploadMultiple: false,  // Don't send multiple uploads at once
+    maxFiles: 100,  // No more than 100 files in the upload zone at once
+    maxFilesize: 100, // No files larger than 100kb
+    previewsContainer: '#dropzone-thumbs',  // identify the HTML element where previews will show up.
 
-    // The setting up of the dropzone
+    // Setting up the dropzone
     init: function() {
         var myDropzone = this;
 
@@ -26,6 +24,8 @@ Dropzone.options.botDropzone = { // The camelized version of the ID of the form 
             console.log('Rendering thumbnail');
         });
 
+        // If the user dropped multiple files before hitting submit,
+        // tell the queue to process the next one that's pending.
         this.on("complete", function(file){
             if (myDropzone.getQueuedFiles()) {
                 myDropzone.processQueue();

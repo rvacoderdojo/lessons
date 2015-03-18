@@ -3,13 +3,15 @@ var fs = require('fs');
 var config = require('./config.js');
 var uploadHandler = require('./uploadHandler');
 
+// Initialize our server
 var server = new Hapi.Server();
 
+// Setup the server's options including listening port.
 server.connection({
     port : (config.listenPort || 6160) // Why 6160?  GI/GO
 });
 
-// Define a static route for content
+// Define a static route for content HTML/CSS/JS/Image content.
 server.route({
     method: 'GET',
     path: '/{param*}',
@@ -20,7 +22,7 @@ server.route({
     }
 });
 
-// Special route to handle file upload.
+// Special route to handle robot file upload
 server.route({
     method: 'POST',
     path: '/upload',
@@ -33,10 +35,11 @@ server.route({
             maxBytes: 209715200 // 200 MB
         },
 
-        handler: uploadHandler
+        handler: uploadHandler  // See uploadHandler.js
     }
 });
 
+// When the server completes startup, log the URL to the console.
 server.start(function () {
     console.log('[info]', 'Server running at: ' + server.info.uri);
 });
