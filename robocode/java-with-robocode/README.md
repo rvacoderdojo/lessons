@@ -5,9 +5,9 @@ Robocode bots, and let them fight it out to the finish.  Robocode is a great int
 and allows for teaching a lot of interesting math concepts as well (coordinate plane, angles, degrees, radians,
 heading, and bearing to name just a few).
 
-Source code for the robots can be found in [``src/main/java``](https://github.com/rvacoderdojo/lessons/tree/master/java-with-robocode/src/main/java)
+Source code for the robots can be found in [``src/main/java``](https://github.com/rvacoderdojo/lessons/tree/master/robocode/java-with-robocode/src/main/java)
 
-- [SimpleBot.java](https://github.com/rvacoderdojo/lessons/blob/master/java-with-robocode/src/main/java/coderdojo/bots/simple/SimpleBot.java)
+- [SimpleBot.java](https://github.com/rvacoderdojo/lessons/blob/master/robocode/java-with-robocode/src/main/java/coderdojo/bots/simple/SimpleBot.java)
 
 ## Presentations
 - [Lesson 1](http://goo.gl/7ICTZ1) - Environment Setup, basic Java, and our first bot
