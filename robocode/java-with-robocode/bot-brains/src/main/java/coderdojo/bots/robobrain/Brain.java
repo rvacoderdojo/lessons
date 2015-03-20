@@ -54,16 +54,41 @@ public class Brain {
 
     /**
      * A method to find Enemies that match the criteria defined in the
-     * specific instance of the MemoryScanner provided as a parameter to this method.
+     * by stacking together the various memory scanners.  You can think
+     * of this like going through a sequence of filters.
+     * The first memory scanner is run, and the results of that are fed into
+     * the next one.<br/>
+     * <br/>
+     * Example:<br/>
+     * find (new MostRecentShooterScanner(), new LiveBotScanner());<br/>
+     * Will first find all the bots who've shot us then filter it down to those left alive.
      *
-     * @param scanner
-     *      A MemoryScanner implementation.
+     * @param scanners
+     *      One or more MemoryScanner implementations.
      *
      * @return a list of matching EnemyInfo bots.
      */
-    public List<EnemyInfo> find(MemoryScanner scanner) {
+    // This uses Varargs which allows the method to take MULTIPLE arguments of the same type.
+    // The Vararg method parameter must always be the last one in the list and is denoted
+    // by the "..." that follows the class name
+    public List<EnemyInfo> find(MemoryScanner... scanners) {
 
-        return scanner.scan(memory.values());
+        // First start out with the full list of bots.
+        List<EnemyInfo> results = new ArrayList<EnemyInfo>(memory.values());
+
+        //////// Enhanced For Loop /////////
+
+        // This is called an "Enhanced For Loop".  It
+        // is an easy way to go step by step through a collection of
+        // a objects that are all the same type.
+        // It works for Collections, Lists, Arrays
+
+        // Now apply each of our scanners passed in via the Vararg to the list.
+        for (MemoryScanner scanner : scanners)  {
+            results = scanner.scan(results);
+        }
+
+        return results;
     }
 
     ////// Overloaded methods //////
@@ -135,6 +160,8 @@ public class Brain {
      * round of battle.
      */
     public void resetAll() {
+
+        //////// Enhanced For Loop /////////
         for (EnemyInfo enemyInfo : memory.values()) {
             enemyInfo.reset();
         }

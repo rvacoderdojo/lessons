@@ -24,6 +24,7 @@ public class LiveBotScanner extends MemoryScanner {
         // This is called an "Enhanced For Loop".  It
         // is an easy way to go step by step through a collection of
         // a objects that are all the same type.
+        // It works for Collections, Lists, Arrays
         for (EnemyInfo enemyInfo : enemies) {
 
             // If the bot is not dead, add them to our collection of
