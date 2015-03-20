@@ -2,7 +2,8 @@ package coderdojo.bots.robobrain.scanners;
 
 import coderdojo.bots.robobrain.EnemyInfo;
 import coderdojo.bots.robobrain.MemoryFilter;
-import coderdojo.bots.robobrain.comparators.MostRecentShooterComparator;
+import coderdojo.bots.robobrain.comparators.MostRecentEventComparator;
+import robocode.HitByBulletEvent;
 
 import java.util.*;
 
@@ -12,7 +13,7 @@ import java.util.*;
  *
  * @author RVA Coder Dojo
  */
-public class MostRecentShootersScanner  extends MemoryFilter {
+public class MostRecentShootersFilter extends MemoryFilter {
 
     @Override
     public List<EnemyInfo> filter(Collection<EnemyInfo> enemies) {
@@ -26,7 +27,7 @@ public class MostRecentShootersScanner  extends MemoryFilter {
 
             // A comparator provides the logic for making a comparison
             // between two items to figure out which order to sort them in.
-            Comparator<EnemyInfo> comparator = new MostRecentShooterComparator();
+            Comparator<EnemyInfo> comparator = new MostRecentEventComparator(HitByBulletEvent.class);
             // Sorts the shooters by "most recent".
             Collections.sort(shooters, comparator);
         }
