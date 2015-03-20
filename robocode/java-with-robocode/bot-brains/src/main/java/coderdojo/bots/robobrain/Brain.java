@@ -68,6 +68,7 @@ public class Brain {
      *
      * @return a list of matching EnemyInfo bots.
      */
+    /////// Varargs ///////
     // This uses Varargs which allows the method to take MULTIPLE arguments of the same type.
     // The Vararg method parameter must always be the last one in the list and is denoted
     // by the "..." that follows the class name
