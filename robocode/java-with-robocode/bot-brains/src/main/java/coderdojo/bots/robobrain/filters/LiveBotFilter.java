@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author RVA Coder Dojo
  */
-public class LiveBotScanner extends MemoryFilter {
+public class LiveBotFilter extends MemoryFilter {
 
     @Override
     public List<EnemyInfo> filter(Collection<EnemyInfo> enemies) {
