@@ -14,7 +14,7 @@ Ideas demonstrated and present in this code base include:
 - Data Structures like HashMaps and Lists
     - [HashMap Example with Comments](https://github.com/rvacoderdojo/lessons/blob/master/robocode/java-with-robocode/bot-brains/src/main/java/coderdojo/bots/robobrain/Brain.java#L18)
 - Abstract Classes and Methods
-    -
+    - [Example with Comments](https://github.com/rvacoderdojo/lessons/blob/master/robocode/java-with-robocode/bot-brains/src/main/java/coderdojo/bots/robobrain/filters/MemoryFilter.java#L20)
 - Method Overloading
     - [Examples with Comments](https://github.com/rvacoderdojo/lessons/blob/master/robocode/java-with-robocode/bot-brains/src/main/java/coderdojo/bots/robobrain/Brain.java#L95)
 - Polymorphism
