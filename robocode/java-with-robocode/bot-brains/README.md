@@ -12,17 +12,20 @@ Ideas demonstrated and present in this code base include:
     - [Example of Getters/Setters](https://github.com/rvacoderdojo/lessons/blob/master/robocode/java-with-robocode/bot-brains/src/main/java/coderdojo/bots/robobrain/EnemyInfo.java#L121)
 - Logical Statements
 - Data Structures like HashMaps and Lists
-    - [HashMap Example with Comments](https://github.com/rvacoderdojo/lessons/blob/master/robocode/java-with-robocode/bot-brains/src/main/java/coderdojo/bots/robobrain/Brain.java#L17)
+    - [HashMap Example with Comments](https://github.com/rvacoderdojo/lessons/blob/master/robocode/java-with-robocode/bot-brains/src/main/java/coderdojo/bots/robobrain/Brain.java#L18)
+- Abstract Classes and Methods
+    -
 - Method Overloading
     - [Examples with Comments](https://github.com/rvacoderdojo/lessons/blob/master/robocode/java-with-robocode/bot-brains/src/main/java/coderdojo/bots/robobrain/Brain.java#L95)
 - Polymorphism
-    - [Example with Comments](https://github.com/rvacoderdojo/lessons/blob/master/robocode/java-with-robocode/bot-brains/src/main/java/coderdojo/bots/robobrain/Brain.java#L34)
+    - [Example with Comments](https://github.com/rvacoderdojo/lessons/blob/master/robocode/java-with-robocode/bot-brains/src/main/java/coderdojo/bots/robobrain/Brain.java#L35)
 - Enhanced For Loops
-    - [Example on a Collection](https://github.com/rvacoderdojo/lessons/blob/master/robocode/java-with-robocode/bot-brains/src/main/java/coderdojo/bots/robobrain/scanners/LiveBotScanner.java#L22)
+    - [Example on a Collection](https://github.com/rvacoderdojo/lessons/blob/master/robocode/java-with-robocode/bot-brains/src/main/java/coderdojo/bots/robobrain/filters/LiveBotFilter.java#L21)
     - [Example on a List](https://github.com/rvacoderdojo/lessons/blob/master/robocode/java-with-robocode/bot-brains/src/main/java/coderdojo/bots/robobrain/Brain.java#L165)
     - [Example on Varargs array](https://github.com/rvacoderdojo/lessons/blob/master/robocode/java-with-robocode/bot-brains/src/main/java/coderdojo/bots/robobrain/Brain.java#L80)
 - Varargs
     - [Example with Comments](https://github.com/rvacoderdojo/lessons/blob/master/robocode/java-with-robocode/bot-brains/src/main/java/coderdojo/bots/robobrain/Brain.java#L71)
+
 Comments highlighting these concepts are sprinkled throughout the code. Uses the above
 keywords to string search through the code for detailed explanations of the concepts.
 
