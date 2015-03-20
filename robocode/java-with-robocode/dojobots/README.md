@@ -1,5 +1,4 @@
 # dojobots
-===========
 This houses our growing collection of Robocode bots developed in the dojo.
 
 - [SimpleBot.java](https://github.com/rvacoderdojo/lessons/blob/master/robocode/java-with-robocode/dojobots/src/main/java/coderdojo/bots/simple/SimpleBot.java)
