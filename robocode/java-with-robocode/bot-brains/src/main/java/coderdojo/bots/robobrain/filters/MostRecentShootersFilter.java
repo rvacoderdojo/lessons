@@ -1,4 +1,4 @@
-package coderdojo.bots.robobrain.scanners;
+package coderdojo.bots.robobrain.filters;
 
 import coderdojo.bots.robobrain.EnemyInfo;
 import coderdojo.bots.robobrain.MemoryFilter;

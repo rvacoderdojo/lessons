@@ -10,7 +10,7 @@ import java.util.List;
  * to search through a list of Enemies and find a smaller
  * matching subset based on the rules defined by each subclass
  * when implementing the "filter()" method.   This class provides
- * useful helper methods that will be common across scanners.
+ * useful helper methods that will be common across filters.
  *
  * @author RVA Coder Dojo
  */
