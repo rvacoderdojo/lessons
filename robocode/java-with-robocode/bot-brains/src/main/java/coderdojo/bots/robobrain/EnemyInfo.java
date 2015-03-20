@@ -3,7 +3,7 @@ package coderdojo.bots.robobrain;
 import robocode.*;
 
 /**
- * This object hangs on to the most recent information we have about
+ * This class hangs on to the most recent information we have about
  * a Robot we encountered during battle.  It records each type of
  * interesting event that might happen to or from an enemy.
  *
@@ -21,7 +21,6 @@ public class EnemyInfo {
     private HitRobotEvent crashed;
     private RobotDeathEvent death;
     private ScannedRobotEvent scanned;
-    private DeathEvent killedMe;
 
     /**
      * Create a new Enemy Info instance and
@@ -119,10 +118,13 @@ public class EnemyInfo {
         return mostRecentEvent;
     }
 
-    ///// Getters and Setters for Robot attributes /////
-    public String getName() {
-        return name;
-    }
+    ///// Getters and Setters for Robot attributes (Java Beans) /////
+
+    // Java "Beans" are java classes that are mostly used to hold data.
+    // Most java beans have matching getters/setters for each private property.
+    // For example notice there is a property at the top of this class called
+    // "shotByMe" and below you will see both a "getShotByMe()" and a "setShotByMe()"
+    // method.  The "getter" retrieves the private value, and the "setter" changes it.
 
     public BulletHitEvent getShotByMe() {
         return shotByMe;
@@ -164,12 +166,8 @@ public class EnemyInfo {
         this.scanned = scanned;
     }
 
-    public DeathEvent getKilledMe() {
-        return killedMe;
-    }
-
-    public void setKilledMe(DeathEvent killedMe) {
-        this.killedMe = killedMe;
+    public String getName() {
+        return name;
     }
 
 }

@@ -6,7 +6,12 @@ library form to let the kid concentrate on the more interesting aspects of devel
 
 Ideas demonstrated and present in this code base include:
 - Java Beans
-- Logical Statements
 - Data Structures like HashMaps and Lists
+- Logical Statements
+- Method Overloading
+- Polymorphism
+- Enhanced For Loops
+
+Comments highlighting these concepts are sprinkled throughout the code.
 
 ## Robocode: Code the Best, Destroy the Rest
