@@ -4,9 +4,11 @@ import coderdojo.bots.robobrain.Brain;
 import robocode.*;
 
 /**
- * This is a simple base bot that has a
+ * This is a simple abstract base bot that has a
  * "Brain" and automatically records events that the
- * brain is capable of understanding.
+ * brain is capable of understanding.  You need to
+ * extend and flesh this bot out to do anything
+ * useful.
  *
  * @author RVA Coder Dojo
  */
