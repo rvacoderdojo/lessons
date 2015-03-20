@@ -6,15 +6,15 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * This is a partial implementation of a MemoryScanner (abstract class)
+ * This is a partial implementation of a MemoryFilter (abstract class)
  * to search through a list of Enemies and find a smaller
  * matching subset based on the rules defined by each subclass
- * when implementing the "scan()" method.   This class provides
+ * when implementing the "filter()" method.   This class provides
  * useful helper methods that will be common across scanners.
  *
  * @author RVA Coder Dojo
  */
-public abstract class MemoryScanner {
+public abstract class MemoryFilter {
 
     ////// Abstract Classes and Methods  /////
 
@@ -29,7 +29,7 @@ public abstract class MemoryScanner {
     // logic for how that method should work.
     // These are the methods that the "children" of Abstract Classes must
     // implement.
-    public abstract List<EnemyInfo> scan(Collection<EnemyInfo> enemies);
+    public abstract List<EnemyInfo> filter(Collection<EnemyInfo> enemies);
 
 
     /**

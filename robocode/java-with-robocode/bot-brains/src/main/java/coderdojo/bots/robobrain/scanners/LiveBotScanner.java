@@ -1,22 +1,22 @@
 package coderdojo.bots.robobrain.scanners;
 
 import coderdojo.bots.robobrain.EnemyInfo;
-import coderdojo.bots.robobrain.MemoryScanner;
+import coderdojo.bots.robobrain.MemoryFilter;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 /**
- * This will scan the list of enemies picking out all of the ones who
+ * This will filter the list of enemies picking out all of the ones who
  * are still alive.
  *
  * @author RVA Coder Dojo
  */
-public class LiveBotScanner extends MemoryScanner {
+public class LiveBotScanner extends MemoryFilter {
 
     @Override
-    public List<EnemyInfo> scan(Collection<EnemyInfo> enemies) {
+    public List<EnemyInfo> filter(Collection<EnemyInfo> enemies) {
         List<EnemyInfo> liveBots = new ArrayList<EnemyInfo>();
 
         //////// Enhanced For Loop /////////

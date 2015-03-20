@@ -1,21 +1,21 @@
 package coderdojo.bots.robobrain.scanners;
 
 import coderdojo.bots.robobrain.EnemyInfo;
-import coderdojo.bots.robobrain.MemoryScanner;
+import coderdojo.bots.robobrain.MemoryFilter;
 import coderdojo.bots.robobrain.comparators.MostRecentShooterComparator;
 
 import java.util.*;
 
 /**
- * This will scan the list of enemies picking out all of the ones who
+ * This will filter the list of enemies picking out all of the ones who
  * are still alive.
  *
  * @author RVA Coder Dojo
  */
-public class MostRecentShootersScanner  extends MemoryScanner {
+public class MostRecentShootersScanner  extends MemoryFilter {
 
     @Override
-    public List<EnemyInfo> scan(Collection<EnemyInfo> enemies) {
+    public List<EnemyInfo> filter(Collection<EnemyInfo> enemies) {
         List<EnemyInfo> shooters = new ArrayList<EnemyInfo>();
 
         for (EnemyInfo enemyInfo : enemies) {

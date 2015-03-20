@@ -46,25 +46,24 @@ public class Brain {
     // class definition (like the "Person" above) can be implemented different ways by it's chilren
     // (like our "brother", "sister", "father" or "mother" are all different).
     //
-    // In the example code below we have the general concept of a "MemoryScanner" which can "scan()"
+    // In the example code below we have the general concept of a "MemoryFilter" which can "filter()"
     // the values stored in memory and return a list of matching "EnemyInfo" objects.  We can implement
-    // different "strategies" for our "MemoryScanner" which return a different list of EnemyInfo objects.
+    // different "strategies" for our "MemoryFilter" which return a different list of EnemyInfo objects.
     // So while all of our "MemoryScanners" look the same, in practice, each actual scanner implementation
     // is slightly different.
 
     /**
      * A method to find Enemies that match the criteria defined in the
-     * by stacking together the various memory scanners.  You can think
-     * of this like going through a sequence of filters.
-     * The first memory scanner is run, and the results of that are fed into
+     * by stacking together the various memory MemoryFilters.
+     * The first memory filter is run, and the results of that are fed into
      * the next one.<br/>
      * <br/>
      * Example:<br/>
      * find (new MostRecentShooterScanner(), new LiveBotScanner());<br/>
      * Will first find all the bots who've shot us then filter it down to those left alive.
      *
-     * @param scanners
-     *      One or more MemoryScanner implementations.
+     * @param memoryFilters
+     *      One or more MemoryFilter implementations.
      *
      * @return a list of matching EnemyInfo bots.
      */
@@ -72,7 +71,7 @@ public class Brain {
     // This uses Varargs which allows the method to take MULTIPLE arguments of the same type.
     // The Vararg method parameter must always be the last one in the list and is denoted
     // by the "..." that follows the class name
-    public List<EnemyInfo> find(MemoryScanner... scanners) {
+    public List<EnemyInfo> find(MemoryFilter... memoryFilters) {
 
         // First start out with the full list of bots.
         List<EnemyInfo> results = new ArrayList<EnemyInfo>(memory.values());
@@ -84,9 +83,9 @@ public class Brain {
         // a objects that are all the same type.
         // It works for Collections, Lists, Arrays
 
-        // Now apply each of our scanners passed in via the Vararg to the list.
-        for (MemoryScanner scanner : scanners)  {
-            results = scanner.scan(results);
+        // Now apply each of our memoryFilters passed in via the Vararg to the list.
+        for (MemoryFilter scanner : memoryFilters)  {
+            results = scanner.filter(results);
         }
 
         return results;
