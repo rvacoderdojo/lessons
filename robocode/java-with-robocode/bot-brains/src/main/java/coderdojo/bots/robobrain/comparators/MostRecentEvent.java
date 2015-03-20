@@ -22,13 +22,13 @@ public class MostRecentEvent {
         if (event1 == null && event2 != null)
             result = -1;
         else
-        if (event1 != null && event2 == null)
-            result = 1;
-        else
-        if (event1 == null && event2 == null)
-            result = 0;
-        else
-            result = (int)(event2.getTime() - event1.getTime());
+            if (event1 != null && event2 == null)
+                result = 1;
+            else
+                if (event1 == null && event2 == null)
+                    result = 0;
+                else
+                    result = (int)(event2.getTime() - event1.getTime());
 
         return result;
 
