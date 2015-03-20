@@ -1,5 +1,6 @@
 package coderdojo.bots.robobrain;
 
+import coderdojo.bots.robobrain.filters.MemoryFilter;
 import robocode.*;
 
 import java.util.ArrayList;

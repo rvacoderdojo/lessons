@@ -1,5 +1,6 @@
-package coderdojo.bots.robobrain;
+package coderdojo.bots.robobrain.filters;
 
+import coderdojo.bots.robobrain.EnemyInfo;
 import robocode.Event;
 
 import java.util.Collection;

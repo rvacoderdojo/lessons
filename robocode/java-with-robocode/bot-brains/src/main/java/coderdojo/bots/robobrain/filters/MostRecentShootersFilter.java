@@ -1,7 +1,6 @@
 package coderdojo.bots.robobrain.filters;
 
 import coderdojo.bots.robobrain.EnemyInfo;
-import coderdojo.bots.robobrain.MemoryFilter;
 import coderdojo.bots.robobrain.comparators.MostRecentEventComparator;
 import robocode.HitByBulletEvent;
 
