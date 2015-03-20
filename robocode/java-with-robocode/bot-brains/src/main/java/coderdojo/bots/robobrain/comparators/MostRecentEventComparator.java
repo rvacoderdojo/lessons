@@ -22,6 +22,7 @@ public class MostRecentEventComparator<T extends Class<Event>> implements Compar
     @Override
     public int compare(EnemyInfo enemy1, EnemyInfo enemy2) {
 
+        // Find the right event type and use it's data for comparison
         if (BulletHitEvent.class.isInstance(eventType))
             return compareEvents(enemy1.getShotByMe(), enemy2.getShotByMe());
         if (HitByBulletEvent.class.isInstance(eventType))
@@ -33,6 +34,7 @@ public class MostRecentEventComparator<T extends Class<Event>> implements Compar
         if (ScannedRobotEvent.class.isInstance(eventType))
             return compareEvents(enemy1.getScanned(), enemy2.getScanned());
 
+        // If this is an event we don't track then all things are considered equal.
         return 0;
     }
 
