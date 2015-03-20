@@ -2,6 +2,7 @@ package coderdojo.bots.robobrain;
 
 import robocode.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -129,6 +130,27 @@ public class Brain {
     }
 
     /**
+     * Resets event data on all known enemies.
+     * This should probably be called at the end of each
+     * round of battle.
+     */
+    public void resetAll() {
+        for (EnemyInfo enemyInfo : memory.values()) {
+            enemyInfo.reset();
+        }
+    }
+
+    /**
+     * Returns all the enemies we have seen over the course of battle.
+     *
+     * @return all known enemies.
+     */
+    public List<EnemyInfo> getAllEnemies() {
+
+        return  new ArrayList(memory.values());
+    }
+
+    /**
      * This method will try to locate the named robot in memory.
      * If the bot is not found, a new EnemyInfo class is created with
      * the name, and added to the Brain's "memory".
@@ -138,7 +160,7 @@ public class Brain {
      *
      * @return An EnemyInfo object mapped to the enemy bot by their name.
      */
-    private EnemyInfo getEnemyInfo(String name) {
+    public EnemyInfo getEnemyInfo(String name) {
         EnemyInfo enemyInfo = memory.get(name);
 
         // Check to see if this is the first time we've seen this enemy.
