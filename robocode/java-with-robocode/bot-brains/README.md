@@ -5,6 +5,8 @@ bot.  This code is too long to do in a single dojo session, so we will use it to
 concepts, but provide it in library form to let our coders concentrate on the
 more interesting aspects of developing battle strategy and bots.
 
+This code base allows for delving in to a wide variety of Java concepts through linked, teachable code.
+
 Ideas demonstrated and present in this code base include:
 - Java Beans
     - [Example of Getters/Setters](https://github.com/rvacoderdojo/lessons/blob/master/robocode/java-with-robocode/bot-brains/src/main/java/coderdojo/bots/robobrain/EnemyInfo.java#L121)
