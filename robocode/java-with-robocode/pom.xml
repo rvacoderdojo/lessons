@@ -6,12 +6,29 @@
 
     <groupId>org.rvacoderdojo</groupId>
     <artifactId>java-with-robocode</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-            <groupId>net.sf.robocode</groupId>
-            <artifactId>robocode.api</artifactId>
-            <version>1.9.2.1</version>
-        </dependency>
-    </dependencies>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Parent Project for RVA Coder Dojo Robocode proejcts</name>
+    <description>This helps to define the common libraries and versions used in our Robocode projects at the dojo</description>    
+
+    <properties>
+        <robocode.version>1.9.2.1</robocode.version>
+    </properties>
+
+    <!-- Define the common libraries used across the projects -->
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>net.sf.robocode</groupId>
+                <artifactId>robocode.api</artifactId>
+                <version>${robocode.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <modules>
+        <module>bot-brains</module>
+        <module>dojobots</module>
+    </modules>
 </project>
