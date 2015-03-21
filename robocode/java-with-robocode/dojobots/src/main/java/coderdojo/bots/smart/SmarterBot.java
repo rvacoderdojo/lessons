@@ -45,25 +45,22 @@ public class SmarterBot extends MemoryBot {
             EnemyInfo enemyInfo = brain.findTop(liveBotFilter, recentShooterFilter);
             if (enemyInfo != null) {
                 handleShooter(enemyInfo);
-            }
-            else {
+            } else {
                 // Find a bot that is still alive which we've shot and know the most about it's location so we can target and shoot again.
                 enemyInfo = getBrain().findTop(liveBotFilter, recentVictimsFilter, recentlyEncounteredFilter);
                 if (enemyInfo != null) {
                     targetRobot(enemyInfo);
-                }
-                else {
+                } else {
                     // See if we have any bots we've seen recently.  if so target them.
                     enemyInfo = getBrain().findTop(liveBotFilter, recentlyEncounteredFilter);
                     if (enemyInfo != null) {
                         targetRobot(enemyInfo);
-                    }
-                    else {
+                    } else {
                         wanderAround();
                     }
                 }
-
             }
+
         }
     }
 
@@ -76,10 +73,15 @@ public class SmarterBot extends MemoryBot {
     @Override
     public void onHitWall(HitWallEvent event) {
         // see if we're closer to the RIGHT hand side.. if so turn left.
-        if (getX() > (getBattleFieldWidth() / 2))
+        if (getX() > (getBattleFieldWidth() / 2)) {
+            out.println ("Hit Wall Close to right, turning left");
             turnLeft(80);
-        else
+        }
+        else {
+            out.println("Hit wall close to left, turning right");
             turnRight(80);
+        }
+        ahead(30);
     }
 
 
@@ -129,8 +131,37 @@ public class SmarterBot extends MemoryBot {
     private void wanderAround() {
         out.println("Just wandering");
         turnRadarRight(360);
-        ahead(15);
-        turnLeft(30);
+        int distance = (int) (Math.random() * 150.0);
+        if (heads()) {
+            out.println("   - Wandering forward: " + distance);
+            ahead(distance);
+        }
+        else {
+            out.println("   - Wandering back: " + distance);
+            back(distance);
+        }
+
+        int randomDirectionChoice = (int)(Math.random()*100.0);
+        if (randomDirectionChoice < 30.0) {
+            int angle = (int)(Math.random() * 90.0);
+            out.println("   - Turning right: " + angle);
+            turnRight(angle);
+        }
+        else {
+            int angle = (int)(Math.random() * 90.0);
+            out.println("   - Turning left: " + angle);
+            turnLeft(angle);
+        }
+
+    }
+
+    /**
+     * Flips a coin heads or tails.
+     *
+     * @return true if value is >= 50 (heads), false otherwise (tails).
+     */
+    private boolean heads()  {
+        return ((Math.random() * 100.0) > 0.49);
     }
 
 }
