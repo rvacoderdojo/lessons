@@ -131,7 +131,7 @@ public class SmarterBot extends MemoryBot {
     private void wanderAround() {
         out.println("Just wandering");
         turnRadarRight(360);
-        int distance = (int) (Math.random() * 150.0);
+        int distance = pickRandomNumber(150);
         if (heads()) {
             out.println("   - Wandering forward: " + distance);
             ahead(distance);
@@ -141,27 +141,39 @@ public class SmarterBot extends MemoryBot {
             back(distance);
         }
 
-        int randomDirectionChoice = (int)(Math.random()*100.0);
-        if (randomDirectionChoice < 30.0) {
-            int angle = (int)(Math.random() * 90.0);
+        int randomDirectionChoice = pickRandomNumber(100);
+        if (randomDirectionChoice < 30) {
+            int angle = pickRandomNumber(90);
             out.println("   - Turning right: " + angle);
             turnRight(angle);
         }
         else {
-            int angle = (int)(Math.random() * 90.0);
-            out.println("   - Turning left: " + angle);
-            turnLeft(angle);
+            if (randomDirectionChoice < 60) {
+                int angle = pickRandomNumber(90);
+                out.println("   - Turning left: " + angle);
+                turnLeft(angle);
+            }
         }
 
     }
 
+    /**
+     * Pick a random number up to max value.
+     *
+     * @param maxValue
+     *      the max value our random number can be.
+     * @return the random number
+     */
+    private int pickRandomNumber(int maxValue) {
+        return (int)(Math.random() * maxValue);
+    }
     /**
      * Flips a coin heads or tails.
      *
      * @return true if value is >= 50 (heads), false otherwise (tails).
      */
     private boolean heads()  {
-        return ((Math.random() * 100.0) > 0.49);
+        return (pickRandomNumber(90) >= 50);
     }
 
 }
