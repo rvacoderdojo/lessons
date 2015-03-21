@@ -2,7 +2,6 @@ package coderdojo.bots.robobrain.filters;
 
 import coderdojo.bots.robobrain.EnemyInfo;
 import coderdojo.bots.robobrain.comparators.MostRecentEnemyEventComparator;
-import robocode.BulletHitEvent;
 import robocode.ScannedRobotEvent;
 
 import java.util.*;
