@@ -36,6 +36,11 @@ public abstract class MemoryBot extends Robot {
         getBrain().rememberThis(event);
     }
 
+    @Override
+    public void onScannedRobot(ScannedRobotEvent event) {
+        getBrain().rememberThis(event);
+    }
+
     /**
      * Get access to the bot's brain to use or update it's
      * "memories"
