@@ -144,7 +144,8 @@ public class EnemyInfo {
 
     public void setShotMe(HitByBulletEvent shotMe) {
         this.shotMe = shotMe;
-        setLastBearing(shotMe.getBearing());
+        if (shotMe != null)
+            setLastBearing(shotMe.getBearing());
     }
 
     public HitRobotEvent getCrashed() {
@@ -153,7 +154,8 @@ public class EnemyInfo {
 
     public void setCrashed(HitRobotEvent crashed) {
         this.crashed = crashed;
-        setLastBearing(crashed.getBearing());
+        if (crashed != null)
+            setLastBearing(crashed.getBearing());
     }
 
     public RobotDeathEvent getDeath() {
@@ -170,7 +172,8 @@ public class EnemyInfo {
 
     public void setScanned(ScannedRobotEvent scanned) {
         this.scanned = scanned;
-        setLastBearing(scanned.getBearing());
+        if (scanned != null)
+            setLastBearing(scanned.getBearing());
     }
 
     public double getLastBearing() {
