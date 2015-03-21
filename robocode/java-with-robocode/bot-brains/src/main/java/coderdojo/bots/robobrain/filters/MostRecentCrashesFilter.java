@@ -19,17 +19,17 @@ public class MostRecentCrashesFilter  extends MemoryFilter {
         List<EnemyInfo> crashers = new ArrayList<EnemyInfo>();
 
         for (EnemyInfo enemyInfo : enemies) {
-
+            // Filter out only those that have crashed before.
             if (enemyInfo.getCrashed() != null) {
                 crashers.add(enemyInfo);
             }
-
-            // A comparator provides the logic for making a comparison
-            // between two items to figure out which order to sort them in.
-            Comparator<EnemyInfo> comparator = new MostRecentEnemyEventComparator(HitRobotEvent.class);
-            // Sorts the results by "most recent".
-            Collections.sort(crashers, comparator);
         }
+
+        // A comparator provides the logic for making a comparison
+        // between two items to figure out which order to sort them in.
+        Comparator<EnemyInfo> comparator = new MostRecentEnemyEventComparator(HitRobotEvent.class);
+        // Sorts the results by "most recent".
+        Collections.sort(crashers, comparator);
         return crashers;
     }
 }

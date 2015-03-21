@@ -20,16 +20,18 @@ public class MostRecentVictimsFilter  extends MemoryFilter {
 
         for (EnemyInfo enemyInfo : enemies) {
 
+            // Filter out only those we have shot before.
             if (enemyInfo.getShotByMe() != null) {
                 victims.add(enemyInfo);
             }
-
-            // A comparator provides the logic for making a comparison
-            // between two items to figure out which order to sort them in.
-            Comparator<EnemyInfo> comparator = new MostRecentEnemyEventComparator(BulletHitEvent.class);
-            // Sorts the results by "most recent".
-            Collections.sort(victims, comparator);
         }
+
+        // A comparator provides the logic for making a comparison
+        // between two items to figure out which order to sort them in.
+        Comparator<EnemyInfo> comparator = new MostRecentEnemyEventComparator(BulletHitEvent.class);
+        // Sorts the results by "most recent".
+        Collections.sort(victims, comparator);
+
         return victims;
     }
 }

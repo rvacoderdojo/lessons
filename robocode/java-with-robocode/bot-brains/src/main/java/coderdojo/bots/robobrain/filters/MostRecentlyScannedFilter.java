@@ -21,16 +21,18 @@ public class MostRecentlyScannedFilter extends MemoryFilter {
 
         for (EnemyInfo enemyInfo : enemies) {
 
+            // Filter out only those we've scanned before
             if (enemyInfo.getScanned() != null) {
                 scanned.add(enemyInfo);
             }
-
-            // A comparator provides the logic for making a comparison
-            // between two items to figure out which order to sort them in.
-            Comparator<EnemyInfo> comparator = new MostRecentEnemyEventComparator(ScannedRobotEvent.class);
-            // Sorts the results by "most recent".
-            Collections.sort(scanned, comparator);
         }
+
+        // A comparator provides the logic for making a comparison
+        // between two items to figure out which order to sort them in.
+        Comparator<EnemyInfo> comparator = new MostRecentEnemyEventComparator(ScannedRobotEvent.class);
+        // Sorts the results by "most recent".
+        Collections.sort(scanned, comparator);
+
         return scanned;
     }
 }
