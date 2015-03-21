@@ -17,7 +17,7 @@ public class SampleMemoryBot extends MemoryBot {
 
         while (true) {
             // See if we have any bots we've seen recently. if so target them.
-            EnemyInfo enemyInfo = getBrain().findTop(liveBotFilter,
+            EnemyInfo enemyInfo = brain.findTop(liveBotFilter,
                     recentlyEncounteredFilter);
             if (enemyInfo != null) {
                 targetRobot(enemyInfo);
