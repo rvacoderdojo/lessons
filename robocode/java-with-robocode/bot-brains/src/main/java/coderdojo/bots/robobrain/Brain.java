@@ -54,10 +54,10 @@ public class Brain {
     // is slightly different.
 
     /**
-     * A method to find Enemies that match the criteria defined in the
+     * A method to find Enemies that match the criteria defined
      * by stacking together the various memory MemoryFilters.
      * The first memory filter is run, and the results of that are fed into
-     * the next one.<br/>
+     * the next one, and the next until they have been all processed.<br/>
      * <br/>
      * Example:<br/>
      * find (new MostRecentShooterScanner(), new LiveBotScanner());<br/>
@@ -90,6 +90,36 @@ public class Brain {
         }
 
         return results;
+    }
+
+    /**
+     * A method to find the top enemy that matches the criteria defined
+     * by stacking together the various memory MemoryFilters.
+     * The first memory filter is run, and the results of that are fed into
+     * the next one, and the next until they have been all processed.<br/>
+     * <br/>
+     * Example:<br/>
+     * find (new MostRecentShooterScanner(), new LiveBotScanner());<br/>
+     * Will first find all the bots who've shot us then filter it down to those left alive.
+     *
+     * @param memoryFilters
+     *      One or more MemoryFilter implementations.
+     *
+     * @return a list of matching EnemyInfo bots.
+     */
+    /////// Varargs ///////
+    // This uses Varargs which allows the method to take MULTIPLE arguments of the same type.
+    // The Vararg method parameter must always be the last one in the list and is denoted
+    // by the "..." that follows the class name
+    public EnemyInfo findTop(MemoryFilter... memoryFilters) {
+        List<EnemyInfo> results = find(memoryFilters);
+
+        // If the results are empty or non existent return null;
+        if (results == null || results.isEmpty())
+            return null;
+        else
+            // otherwise return the first item in the list.
+            return results.get(0);
     }
 
     ////// Overloaded methods //////
