@@ -37,7 +37,6 @@ public class SampleMemoryBot extends MemoryBot {
     }
 
     private void wanderAround() {
-        turnRadarRight(360);
         int distance = pickRandomNumber(150);
         if (heads()) {
             ahead(distance);
@@ -55,7 +54,8 @@ public class SampleMemoryBot extends MemoryBot {
                 turnLeft(angle);
             }
         }
-
+        // Note: Scan after moving or your bearings will be off.
+        turnRadarRight(360);
     }
 
     private int pickRandomNumber(int maxValue) {
@@ -63,7 +63,7 @@ public class SampleMemoryBot extends MemoryBot {
     }
 
     private boolean heads() {
-        return (pickRandomNumber(90) >= 50);
+        return (pickRandomNumber(100) >= 50);
     }
 
 }
