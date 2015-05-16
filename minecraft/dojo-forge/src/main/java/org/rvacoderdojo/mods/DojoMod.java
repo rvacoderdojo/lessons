@@ -46,7 +46,7 @@ public class DojoMod
     public void init(FMLInitializationEvent event)
     {
     	// Create the EventHandler
-    	dojoEvents = new DojoEventHandler();
+    	DojoEventHandler dojoEvents = new DojoEventHandler();
     	
     	// Register the event handler (Tell Minecraft to send these events to our handler)
     	MinecraftForge.EVENT_BUS.register(dojoEvents);
