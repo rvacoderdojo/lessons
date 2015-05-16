@@ -1,0 +1,16 @@
+[
+{
+  "modid": "dojomod",
+  "name": "Dojo Basic Mod",
+  "description": "RVA Coder Dojo Basic Mod",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Mr. Pegram"],
+  "credits": "The Forge and FML guys, for doing the hard work, and Wuppy and friends for sharing their knowledge",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
