@@ -19,6 +19,9 @@ import net.minecraftforge.fml.common.eventhandler.EventBus;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 
+/**
+ * This is the main Mod file, and is the glue that holds all the other pieces together.
+ */
 @Mod(modid = DojoMod.MODID, version = DojoMod.VERSION)
 public class DojoMod
 {
@@ -32,16 +35,25 @@ public class DojoMod
     private DojoBlock dojoBlock;
     private DojoEventHandler dojoEvents;
 
+    /**
+     * This is the earliest initialization phase.  Create your block instances here.
+     * The Forge information is a little vague on what things go here versus in the 
+     * when the FMLInitializationEvent is fired.
+     */
     @EventHandler
     public void preinit(FMLPreInitializationEvent event)
     {
     	logger.info("Running Pre Init to setup the DojoBlock");
     	
-    	//blocks
+    	// Initialize your blocks
     	dojoBlock = new DojoBlock();
     	
     }
     
+    /**
+     * This is the later phase of initialization.  Recipes, textures and other
+     * configuration happen here. 
+     */
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
@@ -79,6 +91,7 @@ public class DojoMod
     			'A', Blocks.log
     	});
     	
+        // These lines of code apply the RVA Coder Dojo logo texture to our DojoBlock.
     	if (event.getSide() == Side.CLIENT) {
     		RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
     		String modelResourceName = MODID + ":" + dojoBlock.getRegisteredName();
