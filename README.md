@@ -17,4 +17,10 @@ Greenfoot is a great tool to help bridge kids from Scratch to Java.
 - [Robo Tanks](https://github.com/rvacoderdojo/lessons/tree/master/greenfoot/robo-tanks) Inheritance concepts
 - [Balloon Clapper](https://github.com/rvacoderdojo/lessons/tree/master/greenfoot/balloon-clapper) Using sound to play a game.
 
+## Minecraft
+I'm sure you know what Minecraft is.  This section will hold projects and lessons associated with modding
+Minecraft.
+
+- [Dojo Forge](https://github.com/rvacoderdojo/lessons/tree/master/minecraft/dojo-forge) Our First foray into Minecraft modding with a few simple recipes and an unbreakable block.
+
 We hope you find this useful. Feel free to pull and remix these apps as you see fit.
