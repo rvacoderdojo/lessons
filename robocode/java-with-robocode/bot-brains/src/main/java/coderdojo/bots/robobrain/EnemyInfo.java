@@ -22,6 +22,9 @@ public class EnemyInfo {
     private RobotDeathEvent death;
     private ScannedRobotEvent scanned;
 
+    // The last known bearing of this bot.
+    private double lastBearing;
+
     /**
      * Create a new Enemy Info instance and
      * remember it's name.
@@ -69,6 +72,7 @@ public class EnemyInfo {
         crashed = null;
         death = null;
         scanned = null;
+        lastBearing = 0.0;
     }
 
     /**
@@ -87,11 +91,11 @@ public class EnemyInfo {
         Event mostRecentEvent = new Event() {};
         mostRecentEvent.setTime(0);  // set the time into the far past.
 
-        mostRecentEvent = findMostRecent(mostRecentEvent, shotByMe);
-        mostRecentEvent = findMostRecent(mostRecentEvent, shotMe);
-        mostRecentEvent = findMostRecent(mostRecentEvent, crashed);
-        mostRecentEvent = findMostRecent(mostRecentEvent, death);
-        mostRecentEvent = findMostRecent(mostRecentEvent, scanned);
+        mostRecentEvent = compareEventTimes(mostRecentEvent, shotByMe);
+        mostRecentEvent = compareEventTimes(mostRecentEvent, shotMe);
+        mostRecentEvent = compareEventTimes(mostRecentEvent, crashed);
+        mostRecentEvent = compareEventTimes(mostRecentEvent, death);
+        mostRecentEvent = compareEventTimes(mostRecentEvent, scanned);
 
         return mostRecentEvent;
     }
@@ -108,7 +112,7 @@ public class EnemyInfo {
      *
      * @return The most recent of the two events being compared.
      */
-    private Event findMostRecent(Event mostRecentEvent, Event comparisonEvent) {
+    private Event compareEventTimes(Event mostRecentEvent, Event comparisonEvent) {
 
         // If the comparisonEvent time is not a null value, and it's more recent, replace
         // the prior "mostRecentEvent" value with the "comparisonEvent"
@@ -140,6 +144,8 @@ public class EnemyInfo {
 
     public void setShotMe(HitByBulletEvent shotMe) {
         this.shotMe = shotMe;
+        if (shotMe != null)
+            setLastBearing(shotMe.getBearing());
     }
 
     public HitRobotEvent getCrashed() {
@@ -148,6 +154,8 @@ public class EnemyInfo {
 
     public void setCrashed(HitRobotEvent crashed) {
         this.crashed = crashed;
+        if (crashed != null)
+            setLastBearing(crashed.getBearing());
     }
 
     public RobotDeathEvent getDeath() {
@@ -164,6 +172,16 @@ public class EnemyInfo {
 
     public void setScanned(ScannedRobotEvent scanned) {
         this.scanned = scanned;
+        if (scanned != null)
+            setLastBearing(scanned.getBearing());
+    }
+
+    public double getLastBearing() {
+        return lastBearing;
+    }
+
+    public void setLastBearing(double lastBearing) {
+        this.lastBearing = lastBearing;
     }
 
     public String getName() {
