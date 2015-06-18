@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=titleValue\ startValue
+comment0.target=Counter(java.lang.String,\ int)
+comment0.text=\r\n\ Initializes\ our\ Score\ object.\r\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Score\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.params=
+comment2.target=void\ addOne()
+comment2.text=\r\n\ Adds\ 1\ to\ our\ value\r\n
+comment3.params=
+comment3.target=void\ subtractOne()
+comment3.text=\r\n\ Takes\ away\ 1\ from\ our\ value.\r\n
+comment4.params=howMany
+comment4.target=void\ add(int)
+comment4.text=\r\n\ Adds\ "howMany"\ to\ our\ value.\ \ \ You\ can\ "subtract"\ by\ making\ this\r\n\ a\ negative\ number.\ \ \r\n\ Example\:\ \ counter.add(-5);\r\n
+comment5.params=
+comment5.target=int\ getValue()
+comment6.params=
+comment6.target=void\ updateImage()
+comment6.text=\r\n\ Draw\ the\ updated\ scoreboard\r\n
+numComments=7

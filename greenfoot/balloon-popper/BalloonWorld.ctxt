@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=
+comment0.target=BalloonWorld()
+comment0.text=\r\n\ Setup\ our\ BalloonWorld\!\r\n
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=void\ scorePoint()
+comment3.params=
+comment3.target=void\ loseLife()
+comment4.params=
+comment4.target=void\ addBalloon()
+numComments=5
