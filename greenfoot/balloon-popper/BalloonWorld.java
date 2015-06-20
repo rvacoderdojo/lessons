@@ -23,6 +23,7 @@ public class BalloonWorld extends World
         scoreboard = new Counter("Score: ", 0);
         addObject(scoreboard, 60, 20);
         
+        // Create a Life counter, Start with 3 lives
         lives = new Counter("Lives: ", 3);
         addObject(lives, 720, 20);
         
@@ -31,27 +32,27 @@ public class BalloonWorld extends World
         addObject(popper, getWidth() / 2, getHeight() / 2);
         
         // Setup timing for adding next balloon
-        delay = 1500;  // Add a balloon every 3 seconds (3000 milliseconds)
+        delay = 1500;  // Add a balloon every 1.5 seconds (100 milliseconds)
         lastBalloonTime = 0; // Exact time when the last balloon was created (0 = never)
     }    
     
     public void act() 
     {
-        long currentTime = System.currentTimeMillis();
         // See if it is time add another balloon
+        long currentTime = System.currentTimeMillis();
         if (currentTime - lastBalloonTime > delay)
         {
-            addBalloon();
+            addBalloon();  // Add a new balloon
     
             // Now update the time value for when we created a new balloon
             lastBalloonTime = currentTime;
             // Decrease the delay between new balloons by 20 milliseconds... getting faster.
-            if (delay > 50)
+            if (delay > 150)
             {
                 delay = delay - 20;
             }
         }
-        
+        // If we ran out of lives, stop the game
         if (lives.getValue() < 1)
         {
             Greenfoot.stop();
@@ -59,7 +60,8 @@ public class BalloonWorld extends World
     }
     
     private void addBalloon() 
-    {        
+    {    
+        // This puts a balloon in a random location at the bottom of the screen.
         addObject(new Balloon(), Greenfoot.getRandomNumber(getWidth()), getHeight());
     }
     

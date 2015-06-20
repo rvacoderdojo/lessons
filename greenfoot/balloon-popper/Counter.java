@@ -46,9 +46,8 @@ public class Counter extends Actor
     }
     
     /**
-     * Adds "howMany" to our value.   You can "subtract" by making this
-     * a negative number.  
-     * Example:  counter.add(-5);
+     * Adds "howMany" to our value.   You can also "subtract" by making this
+     * a negative number.  Example:  counter.add(-5);
      */
     public void add(int howMany) 
     {

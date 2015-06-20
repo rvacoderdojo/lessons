@@ -23,7 +23,9 @@ public class Popper extends Actor
             setLocation(info.getX(), info.getY());
         }
         
+        // See if there are any balloons under the popper
         Balloon balloonActor = (Balloon)getOneObjectAtOffset(0, 0, Balloon.class);
+        // If there is a balloon underneath.  That's good! Pop it!
         if (balloonActor != null) 
         {
             balloonActor.popGood();                
