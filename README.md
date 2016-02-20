@@ -23,4 +23,10 @@ Minecraft.
 
 - [Dojo Forge](https://github.com/rvacoderdojo/lessons/tree/master/minecraft/dojo-forge) Our First foray into Minecraft modding with a few simple recipes and an unbreakable block.
 
+## Web
+This is for web (HTML/CSS/JS) oriented projects.  
+
+- [NASA APIs](https://github.com/rvacoderdojo/lessons/tree/master/web/nasa-apis) This is a sample project that shows how to use Javascript and AJAX to access NASA's APIs for the Astronomy Photo of the Day and the Mars Rovers.
+
+
 We hope you find this useful. Feel free to pull and remix these apps as you see fit.

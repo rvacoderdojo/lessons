@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Load up the style sheets -->
+    <!-- Bootstrap helps to make our website work well on mobile devices and gives us pretty forms -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <!-- This is a special library that helps with the Calendar widget on the page. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker3.standalone.min.css"/>
+    <!-- This is our stylesheet. -->
+    <link rel="stylesheet" href="styles/apod-styles.css"/>
+    <!-- This is the title of the web page that shows up in bookmarks -->
+    <title>Astronomy Picture Of the Day</title>
+</head>
+<body>
+<div class="container">
+    <!-- We're going to create an input form where you -->
+    <!-- can choose the date you want to view          -->
+    <form class="form-inline" id="apodform">
+        <div class="well well-sm center-block text-center">
+            <!-- This <div> block gives us the fancy calendar date picker. -->
+            <div class="input-group">
+                <!-- The date format looks weird because it is the format  -->
+                <!-- that NASA wants you to submit the date in             -->
+                <input type="text" class="form-control datepicker" id="dateField" placeholder="yyyy-mm-dd">
+                <span class="input-group-addon glyphicon glyphicon-calendar" onclick="$('.datepicker').datepicker('show');"></span>
+            </div>
+            <button type="submit" class="btn btn-default bg-primary">Go</button>
+        </div>
+    </form>
+    <!-- This <div> is where our APOD photo will be inserted -->
+    <div class="row center-block" id="apodphoto"></div>
+</div>
+<!-- This div is where the "popup" displays (or modals) will be inserted -->
+<div id="mymodal"></div>
+<!-- These are all the javascript files that help our program out -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+<!-- "common-stuff.js" is a Javascript file that both of our NASA pages use -->
+<script type="text/javascript" src="scripts/common-stuff.js"></script>
+<!-- "apod.js" is the Javascript that applies only to the APOD page -->
+<script type="text/javascript" src="scripts/apod.js"></script>
+</body>
+</html>
