@@ -1,0 +1,132 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    color: white;
+    background: black;
+}
+
+label {
+    font-size: 12pt;
+    font-weight: bolder;
+}
+
+textarea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+    width: 80%;
+}
+
+/* This sets the default style for all "input" tags. */
+input, textarea, select {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 12pt;
+    color:#eee;
+    background: #444;
+    border: solid 2px #555;
+    border-radius: 10px;
+    transition: box-shadow 0.3s, border 0.3s;
+}
+
+
+/*
+* This sets the default style for all "input" tags when you are
+* using the form field or button.
+*/
+input:focus, input.focus,
+textarea:focus, textarea.focus,
+select:focus, select.focus {
+    outline: none;
+    border: solid 1px #777;
+    box-shadow: 0 0 5px 5px #444;
+}
+
+#app{
+    z-index: 1;
+    top: 0;
+    left: 0;
+    position: absolute;
+    padding: 10px;
+}
+.inline-fields input,
+.inline-fields select {
+    margin-right: 10px;
+}
+.textarea-label {
+    display: block;
+}
+
+.letters {
+    padding-bottom: 10px;
+}
+.letter-name {
+    display: inline-block;
+    font-weight: bolder;
+}
+
+/** Fancy switch for checkbox */
+.onoffswitch {
+    position: relative; width: 120px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 30px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 38px; padding: 0; line-height: 38px;
+    font-size: 12px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "Encrypt";
+    padding-left: 10px;
+    background-color: #34A7C1; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "Decrypt";
+    padding-right: 10px;
+    background-color: #444; color: #999999;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 15px; margin: 11.5px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 78px;
+    border: 2px solid #999999; border-radius: 30px;
+    transition: all 0.3s ease-in 0s;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px;
+}
+
+/** Matrix background stuff */
+#matrix-background {
+    padding: 0px;
+    margin: 0px;
+    z-index: -1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    min-width: 100%;
+}
+#matrix-container {
+    display: block;
+    background: black;
+    padding: 0px;
+    margin: 0px;
+    min-width: 100%;
+}

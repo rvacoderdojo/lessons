@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- This is the title that shows up in the tab and on bookmarks -->
+    <title>I've Got a Secret</title>
+    <!-- This connects our stylesheet to our page -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="matrix-background">
+    <canvas id="matrix-container"></canvas>
+</div>
+<div id="app">
+    <!-- This is our input form -->
+    <form onSubmit="return process(this)" method="POST">
+        <div class="onoffswitch">
+            <input type="checkbox" name="encrypt" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+            <label class="onoffswitch-label" for="myonoffswitch">
+                <span class="onoffswitch-inner"></span>
+                <span class="onoffswitch-switch"></span>
+            </label>
+        </div>
+        <div class="inline-fields">
+            <label for="algorithm">Encryption Type:</label>
+            <select id="algorithm" name="algorithm">
+                <option value="caesarShiftCipher">Caesar Cipher</option>
+                <option value="randomizedSubstitution">Randomized</option>
+                <option value="keywordShiftCipher">Keyword Shift</option>
+            </select>
+            <label for="keyvalue">Key:</label>
+            <input type="text" name="key" id="keyvalue">
+            <!-- This is the button you press to ask the 8 Ball your question -->
+            <input type="submit" value="Convert" />
+        </div>
+        <label for="messageIn" class="textarea-label">Input Message</label>
+        <textarea id="messageIn" name="inputMessage" rows="5" cols="80" onkeypress="encrypt(cryptoAlgorithm);"></textarea>
+        <br/>
+        <label for="outputmessage" class="textarea-label">Result</label>
+        <textarea id="outputmessage" name="outputMessage" rows="5" cols="80"></textarea>
+        <br/>
+        <br/>
+    </form>
+    <div class="legend">
+        <div class="letters">
+            <span class="letter-name">Regular Alphabet: </span><br/>
+            <span>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</span>
+        </div>
+        <div  class="letters">
+            <span class="letter-name">Encrypted Alphabet: </span><br/>
+            <span id="encrypted-set">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</span>
+        </div>
+    </div>
+</div>
+
+<!--  Julius Caesar's Shift encryption -->
+<script src="caesar-shift.js" type="text/javascript"></script>
+<!-- Randomized substitution generator -->
+<script src="randomized-key.js" type="text/javascript"></script>
+<!-- Shifts cipher based off of a keyword placed at the front -->
+<script src="keyword-shift.js" type="text/javascript"></script>
+<script src="app.js" type="text/javascript"></script>
+<script src="matrix-animation.js" type="text/javascript"></script>
+<script type="text/javascript">
+    // this is just for fun.   It creates a matrix rain background.
+    MatrixAnimation.init('matrix-container');
+    MatrixAnimation.setFontSize(12);
+    MatrixAnimation.setText('Shhh! I have a secret');
+    MatrixAnimation.start();
+</script>
+</body>
+</html>
