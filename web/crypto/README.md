@@ -28,6 +28,3 @@ Here's a quick description of how to play with the project and what the files do
 - randomized-key.js - A substitution cipher that completely randomizes the alphabet.  
 
 **You can also play with this project on Thimble by remixing it:  [Thimble Remix](https://d157rqmxrxj6ey.cloudfront.net/mpegram3rd/45206)**
-
-**Also check out [Encryption for Kids](https://www.cerias.purdue.edu/education/k-12/teaching_resources/lessons_presentations/cryptology.html)** 
-It has a ton of great information on Encryption, secret messages, and other means of communication throughout history with a ton of fun exercises to do.
