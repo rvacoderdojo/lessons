@@ -8,9 +8,9 @@ vulnerabilities with the substitution cipher as well as one approach to strength
   
 The substitution rotation code is commented out in this version but can be added rather simply by uncommenting the lines in app.js
 that look like this:
-'''
+``` javascript
 substitutions = preventRepetition(substitutions);
-'''
+```
 
 Make sure to uncomment those lines in both the encrypt and decrypt functions or it won't work.
 
