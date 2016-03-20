@@ -4,11 +4,13 @@ Encryption - I've Got A Secret
 This code base goes along with our talk on encryption which can be found here: [Slides](https://goo.gl/nCgjfi)
 
 This demonstrates 3 approaches to a simple substitution cipher.  At the end of the talk we show the flaws and
-vulnerabilities with the substitution cipher as well as one approach to strengthening it (rotating the keys).
+vulnerabilities with the substitution cipher as well as one approach to strengthening it (rotating the substitutions).
   
-The key rotation code is commented out in this version but can be added rather simply by uncommenting the lines in app.js
+The substitution rotation code is commented out in this version but can be added rather simply by uncommenting the lines in app.js
 that look like this:
+'''
 substitutions = preventRepetition(substitutions);
+'''
 
 Make sure to uncomment those lines in both the encrypt and decrypt functions or it won't work.
 
