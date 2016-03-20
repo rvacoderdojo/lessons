@@ -9,6 +9,10 @@ label {
     font-weight: bolder;
 }
 
+a:link, a:visited {
+    color: #8ee;
+}
+
 textarea {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;

@@ -1,5 +1,8 @@
+// This is just here for fun.  It will create a customizable
+// Matrix Rain animation effect which you can
+// use as a background.
 var MatrixAnimation = (function(){
-    
+
     var containerId = 'matrix-container';
     var renderDelay = 50;
     var fontSize = 8;
@@ -10,7 +13,7 @@ var MatrixAnimation = (function(){
     var columns;
     var drops;
     var textIndex;
-    
+
     return {
         init : function(containerName) {
             containerId = containerName;
@@ -29,14 +32,14 @@ var MatrixAnimation = (function(){
             matrixCanvas = document.getElementById(containerId);
             matrixCanvas.height = window.innerHeight;
             matrixCanvas.width = window.innerWidth;
-            
+
             matrixContext = matrixCanvas.getContext('2d');
-            
+
             // How many characters across the canvas
             matrixTextArr = matrixText.split("");
             columns = matrixCanvas.width / fontSize;
             drops = [];
-            
+
             // Where to start in the matrix code
             // This allows for readable text messages to rain down.
             textIndex = [];
@@ -45,16 +48,16 @@ var MatrixAnimation = (function(){
                 drops[x] = matrixCanvas.height + 1;
                 textIndex[x] = Math.floor(Math.random() * matrixTextArr.length);
             }
-            
+
             setInterval(this.render, renderDelay);
         },
-        
+
         render: function() {
             matrixContext.fillStyle="rgba(0,0,0,0.05)";
             matrixContext.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
             matrixContext.fillStyle = "#0F0"; // green text
             matrixContext.font = fontSize + "px arial";
-            
+
             // Loop over the drops
             for (var i=0; i < drops.length; i++) {
 
@@ -71,6 +74,6 @@ var MatrixAnimation = (function(){
                 drops[i]++;
             }
         }
-        
+
     }
 }());

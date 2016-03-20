@@ -13,7 +13,7 @@ var CaesarCrypto = (function() {
         createSubstitutions : function(shiftSize) {
             var substitutions = alphabet.slice(0);
             substitutions.rotate(shiftSize);
-            
+
             return substitutions;
         }
     };

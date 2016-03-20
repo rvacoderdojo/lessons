@@ -21,13 +21,13 @@ var cryptoMap = (function() {
 
 // This is what gets run when you hit the "convert" button
 function process(formIn) {
-    
+
     var originalMessage = formIn.inputMessage.value;
     var keyValue = formIn.key.value;
     var doEncrypt = formIn.encrypt.checked;
 
     var encodedMessage="";
-    if (doEncrypt) {  
+    if (doEncrypt) {
         encodedMessage = encrypt(keyValue, originalMessage, cryptoMap[formIn.algorithm.value]);
     }
     else {
@@ -50,7 +50,7 @@ function encrypt(key, message, cryptoStrategy) {
     for (var x = 0; x < scrubbedMessage.length; x++) {
         // Figure out what position in the alphabet the next letter is.
         var substitutionIndex = scrubbedMessage.charCodeAt(x) - valueOfA;
-        
+
         // replace that letter with the one in the same position in the substitution alphabet.
         if (substitutionIndex >= 0 && substitutionIndex <= substitutions.length) {
             encrypted += substitutions[scrubbedMessage.charCodeAt(x) - valueOfA];
@@ -59,7 +59,7 @@ function encrypt(key, message, cryptoStrategy) {
             encrypted += scrubbedMessage.charAt(x);
         }
         // If you uncomment the line below you can prevent repeating letters
-//        substitutions = preventRepetition(substitutions);
+//            substitutions = preventRepetition(substitutions);
     }
     return encrypted;
 
@@ -79,7 +79,7 @@ function decrypt(key, message, cryptoStrategy) {
         var substitutionIndex = substitutions.findIndex(function(letter) {
             return letter == scrubbedMessage.charAt(x);
         });
-        
+
         // replaces the encrypted letter with the letter that's at that same position in the regular alphabet.
         if (substitutionIndex >= 0 && substitutionIndex <= substitutions.length) {
             decoded += alphabet[substitutionIndex];
@@ -88,7 +88,7 @@ function decrypt(key, message, cryptoStrategy) {
             decoded += scrubbedMessage.charAt(x);
         }
         // If you uncomment the line below you can prevent repeating text
-//        substitutions = preventRepetition(substitutions);
+//            substitutions = preventRepetition(substitutions);
     }
     return decoded;
 
