@@ -1,7 +1,7 @@
 Encryption - I've Got A Secret
 ====================================
 
-** This code base goes along with our talk on encryption which can be found here: [Slides](https://goo.gl/nCgjfi) **
+**This code base goes along with our talk on encryption which can be found here: [Slides](https://goo.gl/nCgjfi)**
 
 This demonstrates 3 approaches to a simple substitution cipher.  At the end of the talk we show the flaws and
 vulnerabilities with the substitution cipher as well as one approach to strengthening it (rotating the substitutions).
@@ -27,4 +27,4 @@ Here's a quick description of how to play with the project and what the files do
 - keyword-shift.js - A cipher that shifts the letters in the alphabet using a keyword and creates holes in the alphabet.  The key must be TEXT
 - randomized-key.js - A substitution cipher that completely randomizes the alphabet.  
 
-** You can also play with this project on Thimble by remixing it:  [Thimble Remix](https://d157rqmxrxj6ey.cloudfront.net/mpegram3rd/45206) **
+**You can also play with this project on Thimble by remixing it:  [Thimble Remix](https://d157rqmxrxj6ey.cloudfront.net/mpegram3rd/45206)**
