@@ -15,7 +15,10 @@ function doStuff(formIn) {
         redColor =  Math.round(255 - distance);
         var newColor = 'rgb(' + redColor + ', 0, ' + blueColor +')';
         console.log('Color: ' + newColor);
-        document.body.style.backgroundColor = newColor;
+        // this appears to be the right way...
+        document.bgColor='CCCC00';
+        // This way doesn't cover the whole page.
+        // document.body.style.backgroundColor = newColor;
         for (var x = 0; x < 1000000; x++) {var y = x / 100000;}
     }
     return false;
