@@ -1,0 +1,26 @@
+html {
+    background: #FFF;
+    transition: background 1s linear;
+}
+html.good {
+    background: #0F0;
+}
+html.bad {
+    background: #F00;
+}
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 80pt;
+}
+div {
+    margin: 0 auto;
+    text-align: center;
+    width: 80%;
+}
+input {
+    padding-right: 10px;
+}
+#guessing-form {
+    display: none;
+}
+

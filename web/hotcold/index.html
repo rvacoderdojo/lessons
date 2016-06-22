@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:300,800' rel='stylesheet' type='text/css'>
+    <title>Title</title>
+    <style type="text/css"></style>
+</head>
+<body>
+    <div>Hot/Cold</div>
+    <div id="start-game">
+        <form>
+            <input type="button" value="Start Game" onclick="startGame()">
+        </form>
+    </div>
+    <div id="guessing-form">
+        <form onSubmit="return doStuff(this)">
+            <input type="text" name="guess"><input type="submit" value="Guess">
+        </form>
+    </div>
+</body>
+<script src="app.css" type="text/javascript"></script>
+</html>
