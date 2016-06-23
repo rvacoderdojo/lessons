@@ -1,24 +1,22 @@
 html {  transition: background 1s linear;  }
+
 html.gameover { background: white; }
 
-html.cold-0 { background: #DDF; }
-html.cold-1 {  background: #BBF;  }
-html.cold-2 {  background: #AAF;  }
-html.cold-3 {  background: #88F;  }
-html.cold-4 {  background: #66F;  }
-html.cold-5 {  background: #44F;  }
-html.cold-6 {  background: #22F;  }
-html.cold-7 {  background: #00F;  }
-
-html.hot-0 { background: #F00; }
-html.hot-1 {  background: #F22;  }
-html.hot-2 {  background: #F44;  }
-html.hot-3 {  background: #F66;  }
-html.hot-4 {  background: #F88;  }
-html.hot-5 {  background: #FAA;  }
-html.hot-6 {  background: #FBB;  }
-html.hot-7 {  background: #FDD;  }
-
+html.guess-0 { background: #F00; }
+html.guess-1 {  background: #F22;  }
+html.guess-2 {  background: #F44;  }
+html.guess-3 {  background: #F66;  }
+html.guess-4 {  background: #F88;  }
+html.guess-5 {  background: #FAA;  }
+html.guess-6 {  background: #FBB;  }
+html.guess-7 {  background: #FDD;  }
+html.guess-8 { background: #DDF; }
+html.guess-9 {  background: #AAF;  }
+html.guess-10 {  background: #88F;  }
+html.guess-11 {  background: #66F;  }
+html.guess-12 {  background: #44F;  }
+html.guess-13 {  background: #22F;  }
+html.guess-14 {  background: #00F;  }
 
 body {
     font-family: 'Raleway', sans-serif;
@@ -35,4 +33,43 @@ input {
 #guessing-form {
     display: none;
 }
+#guess-result {
+    font-size: 40pt;
+}
 
+#guess-result span {
+    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 2s; /* Firefox < 16 */
+    -ms-animation: fadein 2s; /* Internet Explorer */
+    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadein 2s;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

@@ -1,55 +1,44 @@
 var BIGGEST_NUMBER = 100;
 var myNumber = -1;
 var lastGuess = null;
-var coldLabels = ['so close', 'feeling a slight breeze', 'getting chilly', 'colder', 'shivering',
-                  'freezing', 'icy', 'a block of ice'];
-var hotLabels = ['so close', 'a total bonfire', 'on fire', 'burning up', 'really hot',
-                  'starting to sweat', 'feeling toasty', 'a little warm' ];
+var temperatureText = ['so close', 'a total bonfire', 'on fire', 'burning up', 'really hot',
+                 'starting to sweat', 'feeling toasty', 'seeing some sparks',
+                 'feeling a slight breeze', 'getting chilly', 'shivering', 'in need of a coat',
+                 'freezing', 'icy', 'a block of ice'];
 
 function startGame() {
     document.getElementById('start-game').style.display='none';
     document.getElementById('guessing-form').style.display='block';
     lastGuess = null;
-    myNumber = 50; // parseInt(1 + Math.random() * BIGGEST_NUMBER);
+    myNumber = parseInt(1 + Math.random() * BIGGEST_NUMBER);
     console.log('My number is: ' + myNumber + ' shhhhhh!  Don\'t tell!');
 }
 
+function endGame() {
+    changeBackground('gameover');
+    document.getElementById('start-game').style.display='block';
+    document.getElementById('guessing-form').style.display='none';
+}
 
-function doStuff(formIn) {
+function playGame(formIn) {
     var guess = parseInt(formIn.guess.value);
 
-    // Make sure they gave us an actual number.
+    // Make sure they gave us an actual number and it's inside a reasonable range.
     if (isNaN(guess)) {
-        console.log('Sorry that wasn\'t a number');
+        showMessage('Sorry that wasn\'t a number')
         return false;
     }
 
     if (guess == myNumber) {
-        console.log('You won!');
+        showMessage('You won!');
+        endGame();
         return false;
     }
 
-    // See if they've guessed before...
-    if (lastGuess) {
-        var lastDistance = calculateDistance(lastGuess, myNumber);
-        var distance = calculateDistance(guess, myNumber);
-
-        var text = 'about the same';
-        if (lastDistance > distance) {
-            text = warmer(myNumber, guess);
-        }
-        else {
-            text = colder(myNumber, guess);
-        }
-        
-        console.log('You are ' + text);
-    }
-    else {  // first guess... just tell them they didn't get it right
-        console.log('Sorry that wasn\'t it');        
-    }
-    
-    // Save last guess for this next time
-    lastGuess = guess;
+    var severity =  calculateSeverity(myNumber, guess);
+    showMessage('You are ' + temperatureText[severity])
+    changeBackground('guess-' + severity);
+    formIn.guess.focus();
 
     return false;
 }
@@ -69,32 +58,21 @@ function calculateSeverity(secretNumber, guess) {
     // Now let's divide the range above our secret number and below it into 5 equal segments to assign severity.
     // If our guess is ABOVE the secret number, then we divide up 5 / (MAX_NUMBER - secretNumber)
     if (guess > secretNumber) {
-        divisionSize = 8.0 / (BIGGEST_NUMBER - secretNumber);
+        divisionSize = 15.0 / (BIGGEST_NUMBER - secretNumber);
     }
     else {  // This handles the case where I guess was too low
-        divisionSize = 8.0 / secretNumber;
+        divisionSize = 15.0 / secretNumber;
     }
     
     // now we take the distance and multiple it by our division size to get a gauge of how far away their answer is.
     return parseInt(divisionSize * distance);
 }
 
-function warmer(secretNumber, guess) {
-    var severity = calculateSeverity(secretNumber, guess);
-    var styleName = 'hot-' + severity;
-    changeBackground(styleName);
-    
-    return hotLabels[severity];
-}
-
-function colder(secretNumber, guess) {
-    var severity = calculateSeverity(secretNumber, guess);
-    var styleName = 'cold-' + severity;
-    changeBackground(styleName);
-
-    return coldLabels[severity];
-}
-
 function changeBackground(styleName) {
     document.getElementsByTagName('html')[0].className=styleName;
+}
+
+function showMessage(msg) {
+    document.getElementById('guess-result').innerHTML = '<span>' + msg + '</span>';
+    console.log(msg);
 }
