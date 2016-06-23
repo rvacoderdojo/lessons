@@ -1,13 +1,25 @@
-html {
-    background: #FFF;
-    transition: background 1s linear;
-}
-html.good {
-    background: #0F0;
-}
-html.bad {
-    background: #F00;
-}
+html {  transition: background 1s linear;  }
+html.gameover { background: white; }
+
+html.cold-0 { background: #DDF; }
+html.cold-1 {  background: #BBF;  }
+html.cold-2 {  background: #AAF;  }
+html.cold-3 {  background: #88F;  }
+html.cold-4 {  background: #66F;  }
+html.cold-5 {  background: #44F;  }
+html.cold-6 {  background: #22F;  }
+html.cold-7 {  background: #00F;  }
+
+html.hot-0 { background: #F00; }
+html.hot-1 {  background: #F22;  }
+html.hot-2 {  background: #F44;  }
+html.hot-3 {  background: #F66;  }
+html.hot-4 {  background: #F88;  }
+html.hot-5 {  background: #FAA;  }
+html.hot-6 {  background: #FBB;  }
+html.hot-7 {  background: #FDD;  }
+
+
 body {
     font-family: 'Raleway', sans-serif;
     font-size: 80pt;
