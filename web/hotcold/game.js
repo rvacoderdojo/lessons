@@ -207,6 +207,6 @@ function changeBackground(styleName) {
 
 // Shows a message
 function showMessage(msg) {
-    document.getElementById('guess-result')
+    document.getElementById('messages')
         .innerHTML = '<span>' + msg + '</span>';
 }

@@ -36,7 +36,7 @@ input {
 #guessing-form {
     display: none;
 }
-#guess-result {
+#messages {
     font-size: 40pt;
 }
 
