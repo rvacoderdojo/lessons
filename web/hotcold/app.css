@@ -1,7 +1,9 @@
+/* Sets the web page up to do a fancy fade between colors */
 html {  transition: background 1s linear;  }
 
 html.gameover { background: white; }
 
+/* Colors from HOT to COLD */
 html.guess-0 { background: #F00; }
 html.guess-1 {  background: #F22;  }
 html.guess-2 {  background: #F44;  }
@@ -37,6 +39,7 @@ input {
     font-size: 40pt;
 }
 
+/** Fancy fadein for the message when it changes. */
 #guess-result span {
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: fadein 2s; /* Firefox < 16 */

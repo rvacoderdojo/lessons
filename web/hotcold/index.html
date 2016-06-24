@@ -9,11 +9,14 @@
 </head>
 <body>
     <div>Hot/Cold</div>
+    <!-- This is the Start game screen -->
     <div id="start-game">
         <form>
             <input type="button" value="Start Game" onclick="startGame()">
         </form>
     </div>
+
+    <!-- This is the Guessing Game form.  It gets hidden at first (see CSS: #guessing-form style ) -->
     <div id="guessing-form">
         <form onSubmit="return playGame(this)">
             <input type="text" name="guess"><input type="submit" value="Guess">
