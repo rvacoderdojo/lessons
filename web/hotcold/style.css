@@ -25,17 +25,29 @@ body {
     font-family: 'Raleway', sans-serif;
     font-size: 80pt;
 }
+
 div {
     margin: 0 auto;
     text-align: center;
     width: 80%;
 }
+
 input {
     padding-right: 10px;
+    font-size: 16pt;
 }
+
+/* This is a weird trick needed to apply the font to buttons */
+input[type=submit], input[type=button] {
+    appearance: button;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+}
+
 #guessing-form {
     display: none;
 }
+
 #messages {
     font-size: 40pt;
 }
