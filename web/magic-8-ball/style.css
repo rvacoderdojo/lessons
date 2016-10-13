@@ -1,0 +1,87 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    color: white;
+
+    /*
+    This puts a Magic 8 Ball centered on the page a little towars the bottom
+    */
+    background: url(8ball-bg.jpg) no-repeat center 300px black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+/* This style helps to center blocks on the page. */
+.centered {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* This is styling the answer box */
+#answer {
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+    padding: 30px 10px;
+    font-size: 16pt;
+    color: #f2e5ff;  /* Font color is almost white-space */
+    background: #320066; /* Dark Purple background */
+    border: solid 3px #120026; /* Darker Purple border */
+    border-radius: 10px;
+    /* Add a light purple shadow behind the box */
+    box-shadow: 0 0 10px 10px #6600CC;
+}
+
+/*
+ * This creates an animation to fade in and out
+ */
+.fader {
+    opacity: 0; /* Setting opacity to 0 makes things transparent */
+    -moz-transition: opacity 0.7s linear;
+    -o-transition: opacity 0.7s linear;
+    -webkit-transition: opacity 0.7s linear;
+    transition: opacity 0.7s linear;
+}
+
+/*
+ * Setting Opacity to 1 makes things visible.
+ */
+.fader.fadeIn {
+    opacity: 1;
+}
+
+/* This sets the width for the question field. */
+#question {
+    width: 80%;
+}
+
+/* This makes all of the form elements centered on the page. */
+form {
+    text-align: center;
+}
+
+/* This sets the default style for all "input" tags. */
+input {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16pt;
+    color:#eee;
+    background: #444;
+    border: solid 2px #555;
+    border-radius: 10px;
+    transition: box-shadow 0.3s, border 0.3s;
+}
+
+/*
+ * This sets the default style for all "input" tags when you are
+ * using the form field or button.
+ */
+input:focus,
+input.focus {
+    outline: none;
+    border: solid 1px #777;
+    box-shadow: 0 0 5px 5px #444;
+}
