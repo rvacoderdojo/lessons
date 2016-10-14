@@ -1,0 +1,21 @@
+/* This defines the animation when the words are inserted into the story. */
+@-webkit-keyframes word-bounce {
+    0%   { font-size: .5rem; color: darkgray; border-color: darkgray; }
+    50%  { font-size: 2rem; color: white; border-color: white; }
+    100% { font-size: 1.5rem; color: #ee0; border-color: #ee0; }
+}
+@-moz-keyframes word-bounce {
+    0%   { font-size: .5rem; color: darkgray; border-color: darkgray; }
+    50%  { font-size: 2rem; color: white; border-color: white; }
+    100% { font-size: 1.5rem; color: #ee0; border-color: #ee0; }
+}
+@-o-keyframes word-bounce {
+    0%   { font-size: .5rem; color: darkgray; border-color: darkgray; }
+    50%  { font-size: 2rem; color: white; border-color: white; }
+    100% { font-size: 1.5rem; color: #ee0; border-color: #ee0; }
+}
+@keyframes word-bounce {
+    0%   { font-size: .5rem; color: darkgray; border-color: darkgray; }
+    50%  { font-size: 2rem; color: white; border-color: white; }
+    100% { font-size: 1.5rem; color: #ee0; border-color: #ee0; }
+}

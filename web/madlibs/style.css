@@ -1,29 +1,40 @@
+/* Sets the defaults for the page */
+body {
+    line-height: 1.25em;
+    background: black;
+    color: white;
+    font-family: arial, sans-serif;
+    font-size: 1.25rem;
+}
+
+/* Gives our headline a special font. */
+.headline {
+    font-family: 'Mogra', cursive;
+    text-align: center;
+}
+
+/*
+ * This will center our content and give us a
+ * little bit of space on the left and right.
+ */
 .container {
     max-width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
 
-h1 {
-    font-family: 'Mogra', cursive;
-    text-align: center;
-}
 
-div {
-    font-size: 18pt;
-}
-
-/* This sets the default style for all "input" tags. */
-input, button {
-    text-align: center;
+/* This sets the default style for all "input" types. */
+input, button, select {
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 10px;
-    font-size: 16pt;
     color:#eee;
     background: #444;
     border: solid 2px #555;
     border-radius: 10px;
+    font-size: 1.25rem;
+    /* this gives us a fancy animated glow when the box gets focus */
     transition: box-shadow 0.3s, border 0.3s, background 0.3s;
 }
 
@@ -32,24 +43,48 @@ input, button {
  * using the form field or button.
  */
 input:focus,
-input.focus {
+input.focus,
+button:focus,
+button.focus,
+select:focus,
+select.focus {
     outline: none;
     border: solid 2px #777;
     background: #888;
     box-shadow: 0 0 5px 5px #444;
 }
 
+/* This gives us an underlined placeholder where our words will appear. */
 span:empty {
     display: inline-block;
     width: 40px;
-    border-bottom: 1px solid white;
+    color: #ee0;
+    border-bottom: solid 2px #ee0;
 }
+
+/* This does a fancy word bouncing animation when the words are inserted */
+.inserted-word {
+    animation: word-bounce 1s;
+    -webkit-animation: word-bounce 1s;
+    -moz-animation: word-bounce 1s;
+}
+
+/*
+ * All of the remaining styles below have to do with
+ * helping to animate the switch between the form and the story.
+ */
+
+/* This creates a box that fills the screen below the headline */
 .box {
     position: relative;
     width:100%;
     height: 100%;
 }
 
+/*
+ * This is the default style for our form that positions it
+ * at the top of the box container.
+ */
 #madlib-form {
     position: absolute;
     left: 0;
@@ -60,6 +95,10 @@ span:empty {
     opacity: 1;
 }
 
+/*
+ * This is the default style for our story which positions it
+ * way off to the left of the screen.
+ */
 #madlib-story {
     position: absolute;
     left: -100%;
@@ -70,6 +109,10 @@ span:empty {
     opacity: 0;
 }
 
+/*
+ * When we switch on the "storytime" class the web form
+ * moves to the far left of the screen.
+ */
 #madlib-form.storytime {
     opacity: 0;
     left: -100%;
@@ -77,6 +120,10 @@ span:empty {
     transition: all 1s, transform 1s;
 }
 
+/*
+ * When we switch on the "storytime" class the story
+ * slides from the left onto the main part of the screen.
+ */
 #madlib-story.storytime {
     left: 0;
     width:100%;
@@ -86,31 +133,4 @@ span:empty {
     transition: all 1s, transform 1s;
 }
 
-.inserted-word {
-    color: white;
-    border-bottom: solid 1px white;
-    animation: word-bounce 1s;
-    -webkit-animation: word-bounce 1s;
-    -moz-animation: word-bounce 1s;
-}
 
-@-webkit-keyframes word-bounce {
-    0%   { font-size: 5pt; color: darkgray; }
-    50%  { font-size: 25pt; color: white; }
-    100% { font-size: 18pt; color: white; }
-}
-@-moz-keyframes word-bounce {
-    0%   { font-size: 5pt; color: darkgray; }
-    50%  { font-size: 25pt; color: white; }
-    100% { font-size: 18pt; color: white; }
-}
-@-o-keyframes word-bounce {
-    0%   { font-size: 5pt; color: darkgray; }
-    50%  { font-size: 25pt; color: white; }
-    100% { font-size: 18pt; color: white; }
-}
-@keyframes word-bounce {
-    0%   { font-size: 5pt; color: darkgray; }
-    50%  { font-size: 25pt; color: white; }
-    100% { font-size: 18pt; color: white; }
-}

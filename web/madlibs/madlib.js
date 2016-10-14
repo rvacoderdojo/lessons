@@ -50,6 +50,7 @@ function showForm() {
 
 // Changes between the two divs.
 function swapViews() {
+    window.scrollTo(0, 0);
     var madlibForm = document.getElementById('madlib-form');
     var madlibStory = document.getElementById('madlib-story');
 
