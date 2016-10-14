@@ -1,6 +1,6 @@
 /* Sets the defaults for the page */
 body {
-    line-height: 1.25em;
+    line-height: 1.5em;
     background: black;
     color: white;
     font-family: arial, sans-serif;
@@ -21,9 +21,10 @@ body {
     text-align: center;
 }
 
-/* This sets the default style for all "input" types. */
+/*
+ * This sets the default style for all "input" types.
+ */
 input, button, select {
-    margin-top: 10px;
     margin-bottom: 10px;
     padding: 10px;
     color:#eee;
@@ -133,5 +134,3 @@ span:empty {
     -webkit-transition: all 1s, -webkit-transform 1s;
     transition: all 1s, transform 1s;
 }
-
-
