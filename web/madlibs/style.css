@@ -29,27 +29,46 @@ input, button, select {
     padding: 5px;
     color:#eee;
     font-size: 1.25rem;
-    background: #444;
-    border: solid 2px #555;
     border-radius: 10px;
     /* this gives us a fancy animated glow when the box gets focus */
     transition: box-shadow 0.3s, border 0.3s, background 0.3s;
 }
 
+input, select {
+    background: #444;
+    border: solid 2px #555;
+}
+
+button {
+    padding-left: 10px;
+    padding-right: 10px;
+    border: solid 2px #248;
+    background: #48e;
+}
+
 /*
  * This sets the default style for all "input" tags when you are
- * using the form field or button.
+ * using the form fields.
  */
 input:focus,
 input.focus,
-button:focus,
-button.focus,
 select:focus,
 select.focus {
     outline: none;
     border: solid 2px #777;
     background: #888;
     box-shadow: 0 0 5px 5px #444;
+}
+
+/*
+ * Styling for the button when it's clicked (focused)
+ */
+button:focus,
+button.focus {
+    outline: none;
+    border: solid 2px #48a;
+    background: #48e;
+    box-shadow: 0 0 5px 5px #8ce;
 }
 
 /* This gives us an underlined placeholder where our words will appear. */
@@ -134,3 +153,5 @@ span:empty {
     -webkit-transition: all 1s, -webkit-transform 1s;
     transition: all 1s, transform 1s;
 }
+
+
