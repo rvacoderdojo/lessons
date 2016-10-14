@@ -3,74 +3,83 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Made with Thimble</title>
+    <title>RVA Coder Dojo - MadLibs</title>
+
+    <!-- This will load fancy font for our headlin -->
     <link href="https://fonts.googleapis.com/css?family=Mogra" rel="stylesheet">
+
+    <!-- These are our 2 style sheets -->
     <link rel="stylesheet" href="animations.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<div class="container">
     <h1 class="headline">Mad Libs</h1>
+
     <div class="box">
-        <!-- This is our form where we ask for our "fill in the blank values -->
+        <!-- This is our form where we ask for our "fill in the blank values" -->
         <div id="madlib-form">
             <form onSubmit="return showStory(this)" method="POST">
-                <div class="form-group row">
-                    <label>An adjective (description):</label>
-                    <input type="text" name="var1">
-                </div>
-                <div class="form-group row">
-                    <label>A verb (action): </label>
-                    <input type="text" name="var2">
-                </div>
-                <div class="form-group row">
-                    <label>An adjective (description): </label>
-                    <input type="text" name="var3">
-                </div>
-                <div class="form-group row">
-                    <label>A plural noun (multiple somethings): </label>
-                    <input type="text" name="var4">
-                </div>
-                <div class="form-group row">
-                    <label>A verb (action): </label>
-                    <input type="text" name="var5">
-                </div>
-                <div class="form-group row">
-                    <label>An adjective (description): </label>
-                    <input type="text" name="var6">
-                </div>
-                <div class="form-group row">
-                    <label>A plural noun (multiple somethings): </label>
-                    <input type="text" name="var7">
-                </div>
-                <div class="form-group row">
-                    <label>A friend's name: </label>
-                    <input type="text" name="var8">
-                </div>
-                <div class="form-group row">
-                    <label>A color: </label>
-                    <input type="text" name="var9">
-                </div>
-                <div class="form-group row">
-                    <label>An adjective (description): </label>
-                    <input type="text" name="var10">
-                </div>
-                <div class="form-group row">
-                    <label>A plural noun (multiple somethings): </label>
-                    <input type="text" name="var11">
-                </div>
-                <div class="form-group row">
-                    <label>A noun (something):</label>
-                    <input type="text" name="var12">
-                </div>
-                <div class="form-group row">
-                    <button class="btn btn-lg btn-primary">Tell me a story</button>
-                </div>
+            <label>An adjective (description):</label>
+            <input type="text" name="var1">
+            <br/>
+
+            <label>A verb (action): </label>
+            <input type="text" name="var2">
+            <br/>
+
+            <label>An adjective (description): </label>
+            <input type="text" name="var3">
+            <br/>
+
+            <label>A plural noun (multiple somethings): </label>
+            <input type="text" name="var4">
+            <br/>
+
+            <label>A verb (action): </label>
+            <input type="text" name="var5">
+            <br/>
+
+            <label>An adjective (description): </label>
+            <input type="text" name="var6">
+            <br/>
+
+            <label>A plural noun (multiple somethings): </label>
+            <input type="text" name="var7">
+            <br/>
+
+            <label>A friend's name: </label>
+            <input type="text" name="var8">
+            <br/>
+
+            <label>A color: </label>
+            <input type="text" name="var9">
+            <br/>
+
+            <label>An adjective (description): </label>
+            <input type="text" name="var10">
+            <br/>
+
+            <label>A plural noun (multiple somethings): </label>
+            <input type="text" name="var11">
+            <br/>
+
+            <label>A noun (something):</label>
+            <input type="text" name="var12">
+            <br/>
+
+            <button class="btn btn-lg btn-primary">Tell me a story</button>
+
             </form>
 
         </div>
+
+        <!-- This is where our story goes -->
         <div id="madlib-story">
             <p>
+                <!-- NOTE: each of the "spans" has an id that matches a form field above -->
+                <!-- That is how we know where to fill in the blank -->
+
                 Our school cafeteria has really <span id="var1"></span> food.
                 Just thinking about it makes my stomach <span id="var2"></span>.
                 The spaghetti is <span id="var3"></span> and tastes like <span id="var4"></span>.
@@ -89,8 +98,8 @@
             </form>
         </div>
     </div>
-</div>
-
 </body>
+
+<!-- This is where we load in our javascript -->
 <script src="madlib.js" type="text/javascript"></script>
 </html>

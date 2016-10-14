@@ -5,6 +5,14 @@ body {
     color: white;
     font-family: arial, sans-serif;
     font-size: 1.25rem;
+
+    /*
+     * This will center our content and give us a
+     * little bit of space on the left and right.
+     */
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Gives our headline a special font. */
@@ -13,27 +21,16 @@ body {
     text-align: center;
 }
 
-/*
- * This will center our content and give us a
- * little bit of space on the left and right.
- */
-.container {
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
 /* This sets the default style for all "input" types. */
 input, button, select {
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 10px;
     color:#eee;
+    font-size: 1.25rem;
     background: #444;
     border: solid 2px #555;
     border-radius: 10px;
-    font-size: 1.25rem;
     /* this gives us a fancy animated glow when the box gets focus */
     transition: box-shadow 0.3s, border 0.3s, background 0.3s;
 }
@@ -64,6 +61,10 @@ span:empty {
 
 /* This does a fancy word bouncing animation when the words are inserted */
 .inserted-word {
+    border-bottom: solid 2px #ee0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ee0;
     animation: word-bounce 1s;
     -webkit-animation: word-bounce 1s;
     -moz-animation: word-bounce 1s;
