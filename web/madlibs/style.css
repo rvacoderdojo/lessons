@@ -13,6 +13,32 @@ div {
     font-size: 18pt;
 }
 
+/* This sets the default style for all "input" tags. */
+input, button {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16pt;
+    color:#eee;
+    background: #444;
+    border: solid 2px #555;
+    border-radius: 10px;
+    transition: box-shadow 0.3s, border 0.3s, background 0.3s;
+}
+
+/*
+ * This sets the default style for all "input" tags when you are
+ * using the form field or button.
+ */
+input:focus,
+input.focus {
+    outline: none;
+    border: solid 2px #777;
+    background: #888;
+    box-shadow: 0 0 5px 5px #444;
+}
+
 span:empty {
     display: inline-block;
     width: 40px;

@@ -13,15 +13,56 @@
 <div class="container">
     <h1>Mad Libs</h1>
     <div class="box">
+        <!-- This is our form where we ask for our "fill in the blank values -->
         <div id="madlib-form">
             <form onSubmit="return showStory(this)" method="POST">
                 <div class="form-group row">
-                    <label for="var1">Give me a noun:</label>
+                    <label>An adjective (description):</label>
                     <input type="text" name="var1">
                 </div>
                 <div class="form-group row">
-                    <label for="var2">Give me a verb:</label>
+                    <label>A verb (action): </label>
                     <input type="text" name="var2">
+                </div>
+                <div class="form-group row">
+                    <label>An adjective (description): </label>
+                    <input type="text" name="var3">
+                </div>
+                <div class="form-group row">
+                    <label>A plural noun (multiple somethings): </label>
+                    <input type="text" name="var4">
+                </div>
+                <div class="form-group row">
+                    <label>A verb (action): </label>
+                    <input type="text" name="var5">
+                </div>
+                <div class="form-group row">
+                    <label>An adjective (description): </label>
+                    <input type="text" name="var6">
+                </div>
+                <div class="form-group row">
+                    <label>A noun (something): </label>
+                    <input type="text" name="var7">
+                </div>
+                <div class="form-group row">
+                    <label>A friend's name: </label>
+                    <input type="text" name="var8">
+                </div>
+                <div class="form-group row">
+                    <label>A color: </label>
+                    <input type="text" name="var9">
+                </div>
+                <div class="form-group row">
+                    <label>An adjective (description): </label>
+                    <input type="text" name="var10">
+                </div>
+                <div class="form-group row">
+                    <label>A plural noun (multiple somethings): </label>
+                    <input type="text" name="var11">
+                </div>
+                <div class="form-group row">
+                    <label>A noun (something):</label>
+                    <input type="text" name="var12">
                 </div>
                 <div class="form-group row">
                     <button class="btn btn-lg btn-primary">Tell me a story</button>
@@ -31,7 +72,17 @@
         </div>
         <div id="madlib-story">
             <p>
-                Once upon a time there was a <span id="var1"></span> who lived in a castle and liked to <span id="var2"></span>.
+                Our school cafeteria has really <span id="var1"></span> food.
+                Just thinking about it makes my stomach <span id="var2"></span>.
+                The spaghetti is <span id="var3"></span> and tastes like <span id="var4"></span>.
+                One day I swear one of the meatballs started to <span id="var5"></span>!
+                The turkey tacos are totally <span id="var6"></span> and look kind of like
+                old <span id="var7"></span>.  My friend <span id="var8"></span> actually likes
+                the meatloaf, even though it's <span id="var9"></span> and <span id="var10"></span>.
+                I call it "mystery meatloaf" and think it's really made out of <span id="var11"></span>.
+                My dad said he'd make my lunches, but the first day he made me a
+                sandwich out of <span id="var12"></span> and peanut butter!  I think I'd rather take
+                my chances with the cafeteria!
             </p>
 
             <form onSubmit="return showForm()" method="POST">
