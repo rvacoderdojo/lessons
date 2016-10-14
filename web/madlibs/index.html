@@ -12,26 +12,32 @@
 <body>
 <div class="container">
     <h1>Mad Libs</h1>
-    <div id="word-form">
-        <form onSubmit="return showStory(this)" method="POST">
-            <div class="form-group row">
-                <label for="var1">Give me a noun:</label>
-                <input type="text" name="var1">
-            </div>
-            <div class="form-group row">
-                <label for="var2">Give me a verb:</label>
-                <input type="text" name="var2">
-            </div>
-            <div class="form-group row">
-                <button class="btn btn-lg btn-primary">Tell me a story</button>
-            </div>
-        </form>
+    <div class="box">
+        <div id="madlib-form">
+            <form onSubmit="return showStory(this)" method="POST">
+                <div class="form-group row">
+                    <label for="var1">Give me a noun:</label>
+                    <input type="text" name="var1">
+                </div>
+                <div class="form-group row">
+                    <label for="var2">Give me a verb:</label>
+                    <input type="text" name="var2">
+                </div>
+                <div class="form-group row">
+                    <button class="btn btn-lg btn-primary">Tell me a story</button>
+                </div>
+            </form>
 
-    </div>
-    <div id="story">
-        <p>
-            Once upon a time there was a <span id="var1"></span> who lived in a castle and liked to <span id="var2"></span>.
-        </p>
+        </div>
+        <div id="madlib-story">
+            <p>
+                Once upon a time there was a <span id="var1"></span> who lived in a castle and liked to <span id="var2"></span>.
+            </p>
+
+            <form onSubmit="return showForm()" method="POST">
+                <button class="btn btn-lg btn-primary">Try Again</button>
+            </form>
+        </div>
     </div>
 </div>
 
