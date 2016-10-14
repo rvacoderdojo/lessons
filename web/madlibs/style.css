@@ -26,7 +26,7 @@ body {
  */
 input, button, select {
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 5px;
     color:#eee;
     font-size: 1.25rem;
     background: #444;

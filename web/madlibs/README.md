@@ -15,5 +15,5 @@ Files:
 * index.html : This is the core HTML file.  It contains both the input form and the MadLib story.
 * madlib.js : This contains the Javascript that uses the DOM to insert the form values into the story.
 * style.css : This contains most of the styling for the page.
-* animation.css : This is a stylesheet with some CSS animation examples.
+* animations.css : This is a stylesheet with some CSS animation examples.
   
