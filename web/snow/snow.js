@@ -1,3 +1,7 @@
+// Resources:
+// - IIFE http://benalman.com/news/2010/11/immediately-invoked-function-expression/
+// - https://www.kirupa.com/html5/creating_simple_html5_canvas_animation.htm
+// - https://www.kirupa.com/html5/animating_in_code_using_javascript.htm
 var storm = {
     ctx: null,
 
