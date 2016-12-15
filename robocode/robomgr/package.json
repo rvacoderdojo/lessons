@@ -9,7 +9,7 @@
     "url" : "https://github.com/rvacoderdojo/lessons/robocode/robomgr"
   },
   "dependencies": {
-    "hapi" : ">=8.4.x",
+    "hapi" : "~8.4.x",
     "java-class-parser" : "0.2.x",
     "mkdirp": "0.5.x"
   }
