@@ -29,13 +29,12 @@ Snowflake.prototype.getSize = function() {
     return this.size;
 };
 
-
+// This creates the definition of a "snow storm"
 var storm = (function() {
     var ctx = null;
     var maxFlakes = STARTING_FLAKES;
     var requestAnimationFrame = null;
     var snowflakes = [];
-
 
     return {
         // Initialize the snow storm settings.
