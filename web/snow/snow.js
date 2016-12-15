@@ -31,10 +31,14 @@ Snowflake.prototype.getSize = function() {
 
 // This creates the definition of a "snow storm"
 var storm = (function() {
+    // Create a constant for our cirlce so we don't recalculate it everytime.
+    var PI2 = Math.PI * 2;
     var ctx = null;
     var maxFlakes = STARTING_FLAKES;
     var requestAnimationFrame = null;
     var snowflakes = [];
+    var width = window.innerWidth;
+    var height = window.innerHeight;
 
     return {
         // Initialize the snow storm settings.
@@ -63,7 +67,7 @@ var storm = (function() {
     // Creates a new random snowflake
     function createSnowflake() {
         // Place the snowflake in a random place.
-        var xpos = Math.round(Math.random() * window.innerWidth);
+        var xpos = Math.round(Math.random() * width);
         var ypos = Math.round(Math.random() * 10);
 
         // Set the size of the flake.
@@ -77,27 +81,29 @@ var storm = (function() {
 
     // Draws a single frame of the snow animation.
     function drawSnow() {
-        // Re-measure the canvas in case the user resized something.
-        ctx.canvas.width = window.innerWidth;
-        ctx.canvas.height = window.innerHeight;
+        // Re-measure the window size in case the user resized something.
+        width = window.innerWidth;
+        height = window.innerHeight;
+
+        // Make canvas fit the full page.
+        ctx.canvas.width = width;
+        ctx.canvas.height = height;
 
         // Clean up the prior set of flakes.
-        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-        ctx.fillStyle = '#EEE';
+        ctx.clearRect(0, 0, width, height);
+        ctx.fillStyle = '#eee';
 
         // Draw each snowflake.
         snowflakes.forEach(function (snowflake, index, snowflakes) {
 
             var position = snowflake.move();
             // Make sure the snowflake is still on the screen.  If not create a new one.
-            if (position.y < ctx.canvas.height && position.x > 0 && position.x < ctx.canvas.width) {
+            if (position.y < height && position.x > 0 && position.x < width) {
                 circle(position.x, position.y, snowflake.getSize());
             }
             else {
-                // Remove the snowflake that is off the screen edge
-                snowflakes.splice(index, 1);
-                // Create a new one
-                snowflakes.push(createSnowflake());
+                // Replace the snowflake that is off the screen with a new one.
+                snowflakes[index] = createSnowflake();
             }
         });
 
@@ -113,7 +119,7 @@ var storm = (function() {
     // Convenient function to draw a circle
     function circle(x, y, size) {
         ctx.beginPath();
-        ctx.arc(x, y, size, 0, Math.PI * 2);
+        ctx.arc(x, y, size, 0, PI2);
         ctx.fill();
         ctx.closePath();
     }
