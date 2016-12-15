@@ -1,52 +1,126 @@
 // Resources:
 // - IIFE http://benalman.com/news/2010/11/immediately-invoked-function-expression/
-// - https://www.kirupa.com/html5/creating_simple_html5_canvas_animation.htm
 // - https://www.kirupa.com/html5/animating_in_code_using_javascript.htm
-var storm = {
-    ctx: null,
 
-    init: function() {
-        ctx = document.getElementById('snowstorm').getContext('2d');
-        ctx.fillRect(25,25,100,100);
-        ctx.clearRect(45,45,60,60);
-        ctx.strokeRect(50,50,50,50);
+var STARTING_FLAKES = 10;
+var MAX_FLAKE_SIZE = 3;
+
+// Create a snowflake with size, position, and x-direction
+var Snowflake = function(xpos, ypos, size, xdir) {
+    this.xpos = xpos;
+    this.ypos = ypos;
+    this.size = size > 0 && size <= MAX_FLAKE_SIZE ? size : 1;
+    this.xdir = xdir;
+};
+
+// Add a method to make the flake move down and over
+Snowflake.prototype.move = function() {
+    this.xpos += this.xdir;
+    this.ypos += this.size;
+
+    return {
+        x: this.xpos,
+        y: this.ypos
     }
 };
 
+// Gets the size of the snowflake
+Snowflake.prototype.getSize = function() {
+    return this.size;
+};
 
-var mainCanvas = document.getElementById("snowstorm");
-var mainContext = mainCanvas.getContext('2d');
 
-var canvasWidth = mainCanvas.width;
-var canvasHeight = mainCanvas.height;
+var storm = (function() {
+    var ctx = null;
+    var maxFlakes = STARTING_FLAKES;
+    var requestAnimationFrame = null;
+    var snowflakes = [];
 
-var angle = 0;
 
-var requestAnimationFrame = window.requestAnimationFrame ||
-    window.mozRequestAnimationFrame ||
-    window.webkitRequestAnimationFrame ||
-    window.msRequestAnimationFrame;
+    return {
+        // Initialize the snow storm settings.
+        init: function(canvasId, flakes) {
+            maxFlakes = flakes;
+            ctx = document.getElementById(canvasId).getContext('2d');
 
-function drawCircle() {
-    mainContext.clearRect(0, 0, canvasWidth, canvasHeight);
+            // Hook into the animation loop
+            requestAnimationFrame = window.requestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                window.webkitRequestAnimationFrame ||
+                window.msRequestAnimationFrame;
 
-    // color in the background
-//    mainContext.fillStyle = "#EEEEEE";
-//    mainContext.fillRect(0, 0, canvasWidth, canvasHeight);
+            // Create the initial set of snowflakes.
+            for (var index = 0; index < STARTING_FLAKES; index++) {
+                snowflakes[index] = createSnowflake();
+            }
+        },
 
-    // draw the circle
-    mainContext.beginPath();
+        // Function to start snowing.
+        startSnow: function() {
+            drawSnow();
+        }
+    }
 
-    var radius = 25 + 150 * Math.abs(Math.cos(angle));
-    mainContext.arc(225, 225, radius, 0, Math.PI * 2, false);
-    mainContext.closePath();
+    // Creates a new random snowflake
+    function createSnowflake() {
+        // Place the snowflake in a random place.
+        var xpos = Math.round(Math.random() * window.innerWidth);
+        var ypos = Math.round(Math.random() * 10);
 
-    // color in the circle
-    mainContext.fillStyle = "#006699";
-    mainContext.fill();
+        // Set the size of the flake.
+        var size = Math.round(Math.random() * MAX_FLAKE_SIZE) + 1;
 
-    angle += Math.PI / 64;
+        // Set which way left or right it will blow.
+        var xdir = Math.round((Math.random() * 4) - 2);
 
-    requestAnimationFrame(drawCircle);
-}
-drawCircle();
+        return new Snowflake(xpos, ypos, size, xdir);
+    }
+
+    // Draws a single frame of the snow animation.
+    function drawSnow() {
+        // Re-measure the canvas in case the user resized something.
+        ctx.canvas.width = window.innerWidth;
+        ctx.canvas.height = window.innerHeight;
+
+        // Clean up the prior set of flakes.
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        ctx.fillStyle = '#EEE';
+
+        // Draw each snowflake.
+        snowflakes.forEach(function (snowflake, index, snowflakes) {
+
+            var position = snowflake.move();
+            // Make sure the snowflake is still on the screen.  If not create a new one.
+            if (position.y < ctx.canvas.height && position.x > 0 && position.x < ctx.canvas.width) {
+                circle(position.x, position.y, snowflake.getSize());
+            }
+            else {
+                // Remove the snowflake that is off the screen edge
+                snowflakes.splice(index, 1);
+                // Create a new one
+                snowflakes.push(createSnowflake());
+            }
+        });
+
+        // Add more flakes gradually until we hit the max.
+        if (snowflakes.length <  maxFlakes) {
+            snowflakes.push(createSnowflake());
+        }
+
+        // Tell the browser to draw the frame, and start painting a new frame.
+        requestAnimationFrame(drawSnow);
+    }
+
+    // Convenient function to draw a circle
+    function circle(x, y, size) {
+        ctx.beginPath();
+        ctx.arc(x, y, size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.closePath();
+    }
+
+
+})();
+
+storm.init('snowstorm', 1000);
+storm.startSnow();
