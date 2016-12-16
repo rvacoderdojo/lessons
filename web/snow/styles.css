@@ -1,5 +1,6 @@
 html {
-    background: url(snowy-forrest.jpg) no-repeat center center fixed;
+    /* This sets the background image for our snow storm */
+    background: url(zion.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
