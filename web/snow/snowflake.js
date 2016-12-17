@@ -2,10 +2,12 @@
 // It has all the behaviors we need for a single snowflake.
 
 var Snowflake = function(xpos, ypos, size, xdir) {
+    // We need to add code to save the
+    // xpos, ypos and xdir values in variables.
     this.xpos = xpos;
     this.ypos = ypos;
-    this.size = size > 0 && size <= 3 ? size : 1;
     this.xdir = xdir;
+    this.size = size > 0 && size <= 3 ? size : 1;
 };
 
 // Add a method to make the flake move down and over

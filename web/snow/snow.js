@@ -4,7 +4,7 @@
 
 // This creates the definition of a "snow storm"
 var storm = (function() {
-    // Create a constant for our cirlce so we don't recalculate it everytime.
+    // Create a constant for our circle so we don't recalculate it every time.
     var PI2 = Math.PI * 2;
     var ctx = null;
     var maxFlakes = 100;
